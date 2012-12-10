@@ -1,0 +1,44 @@
+/**
+ * Test comment, should be stripped.
+ */
+@var radius = 5;
+
+/**
+ * Another to be stripped.
+ */
+@media print {
+    body {
+        color: #F00;
+    }
+}
+
+@media screen, projection {
+    body {
+        color: #F00;
+    }
+}
+
+@font-face {
+    font-family: "cookie";
+}
+
+body {
+    color: #FFF;
+}
+
+.customClass {
+    color: #FFF;
+    background: #00F;
+}
+
+.b {
+    border-radius: [$radius]px;
+}
+
+.c {
+    border-radius: 5px;
+}
+
+.d, .e, .f {
+    color: #0F0;
+}

@@ -2,8 +2,12 @@
 # This plugin is called to filter the output of the final CSS.
 output_plugin:
   class: \Xazure\Css\Plugin\BeautifyPlugin
-  mode: expanded
+  mode: expanded # expanded, compact, or minified - Affects the whitespace in output, going from more whitespace to less.
 
+# Any plugins can be loaded here.
+# Plugins have a wide variety of settings.
+# All plugins should at least define a class. Any other settings are
+# dictated by the plugin itself.
 plugins:
   xazure.css.plugin.atvar:
     class: \Xazure\Css\Plugin\AtVarPlugin

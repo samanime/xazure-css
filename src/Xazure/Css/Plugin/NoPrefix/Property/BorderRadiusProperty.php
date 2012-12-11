@@ -1,24 +1,49 @@
 <?php
+/**
+ * This file is part of the XazureCSS package.
+ *
+ * (c) Christian Snodgrass <csnodgrass3147+github@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace Xazure\Css\Plugin\NoPrefix\Property;
 
 use Xazure\Css\Element\ElementInterface;
 use Xazure\Css\Element\ElementGroup;
 use Xazure\Css\Element\Property;
 
-class BorderRadiusProperty implements PropertyInterface
+/**
+ * Implements the border-radius property for NoPrefixPlugin.
+ */
+class BorderRadiusProperty extends Property
 {
-    protected $browsers;
-
+    /**
+     * {@inheritdoc}
+     *
+     * @param array $browsers An array of browser shortcode/supported version pairs.
+     */
     public function __construct(array $browsers = array())
     {
         $this->browsers = $browsers;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getPropertyName()
     {
         return 'border-radius';
     }
 
+    /**
+     * Adds the -webkit-prefixed border-radius if iOS 3.1 or Android 2.1 are supported.
+     *
+     * {@inheritdoc}
+     *
+     * @param \Xazure\Css\Element\ElementInterface $element
+     * @return \Xazure\Css\Element\ElementInterface
+     */
     public function process(ElementInterface $element)
     {
         // We'll be creating a new ElementGroup to hold these.
@@ -30,21 +55,5 @@ class BorderRadiusProperty implements PropertyInterface
 
         $group->addElement($element); // add the unprefixed version.
         return $group;
-    }
-
-    /**
-     * Given an array of browsers/version pairs, checks against
-     * browsers to indicate if this should be supported.
-     * @param array $browsrs
-     */
-    public function includeSupport(array $browsers)
-    {
-        foreach ($browsers as $browser => $version) {
-            if (isset($this->browsers[$browser]) && $version >= $this->browsers[$browser]) {
-                return true;
-            }
-        }
-
-        return false;
     }
 }

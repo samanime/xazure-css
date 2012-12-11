@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of the XazureCSS package.
+ *
+ * (c) Christian Snodgrass <csnodgrass3147+github@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace Xazure\Css\Element;
 
 /**
@@ -7,19 +15,24 @@ namespace Xazure\Css\Element;
 class AtRuleBlock extends ElementGroup implements NameInterface, ValueInterface
 {
     /**
+     * The name of the at-rule block.
+     *
      * @var string
      */
     protected $name;
 
     /**
+     * The value of the at-rule block.
+     *
      * @var string
      */
     protected $value;
 
     /**
+     * Constructor.
+     *
      * @param string $name
      * @param string $value
-     * @param array $properties
      */
     public function __construct($name = "", $value = "")
     {
@@ -28,6 +41,8 @@ class AtRuleBlock extends ElementGroup implements NameInterface, ValueInterface
     }
 
     /**
+     * Get the name.
+     *
      * @return string
      */
     public function getName()
@@ -36,6 +51,8 @@ class AtRuleBlock extends ElementGroup implements NameInterface, ValueInterface
     }
 
     /**
+     * Get the value.
+     *
      * @return string
      */
     public function getValue()
@@ -44,6 +61,8 @@ class AtRuleBlock extends ElementGroup implements NameInterface, ValueInterface
     }
 
     /**
+     * Set the name.
+     *
      * @param $name
      */
     public function setName($name)
@@ -52,6 +71,8 @@ class AtRuleBlock extends ElementGroup implements NameInterface, ValueInterface
     }
 
     /**
+     * Set the value.
+     *
      * @param $value
      */
     public function setValue($value)
@@ -59,6 +80,11 @@ class AtRuleBlock extends ElementGroup implements NameInterface, ValueInterface
         $this->value = $value;
     }
 
+    /**
+     * Converts AtRuleBlock to a string representation.
+     *
+     * @return string
+     */
     public function __toString()
     {
         return '@' . $this->name . ' ' . $this->value . " {\n" . implode("\n", $this->elements) . "\n}";

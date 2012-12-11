@@ -1,0 +1,3173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a12" title="">
+  <file path="Setting/SettingsContainer.php" hash="a2e54e10505048461c1334924ae9623b" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Setting" line="15" package="Default">
+      <extends/>
+      <name>SettingsContainer</name>
+      <full_name>\Xazure\Css\Setting\SettingsContainer</full_name>
+      <docblock line="12">
+        <description>Provides a container for all settings as well as handles logic to load configuration files.</description>
+        <long-description/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="22" namespace="Xazure\Css\Setting" package="Default">
+        <name>$settings</name>
+        <default/>
+        <docblock line="17">
+          <description>string key/mixed value pairs.</description>
+          <long-description/>
+          <tag line="17" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Setting" line="32" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="24">
+          <description>Constructor.</description>
+          <long-description>&lt;p&gt;Loads the config file if one is provided.&lt;/p&gt;</long-description>
+          <tag line="24" name="param" description="The absolute file path to a config file. If specified, it will attempt to load." type="string" variable="$configFilePath">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="24" name="param" description="The type of config file, if empty it will auto-detect." type="string" variable="$configFileType">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="32">
+          <name>$configFilePath</name>
+          <default>''</default>
+          <type/>
+        </argument>
+        <argument line="32">
+          <name>$configFileType</name>
+          <default>''</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Setting" line="47" package="Default">
+        <name>has</name>
+        <full_name>has</full_name>
+        <docblock line="41">
+          <description>Indicates if there is a setting specified by the given key.</description>
+          <long-description/>
+          <tag line="41" name="param" description="" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="41" name="return" description="Indicates if the given key has a stored setting." type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="47">
+          <name>$key</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Setting" line="61" package="Default">
+        <name>get</name>
+        <full_name>get</full_name>
+        <docblock line="52">
+          <description>Retrieves a single setting based on the given key.</description>
+          <long-description>&lt;p&gt;If false is a possible value, you'll need to check has() to determine if it
+means false is the value or if false indicates the key doesn't exist.&lt;/p&gt;</long-description>
+          <tag line="52" name="param" description="The key to the value to get." type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="52" name="return" description="The object which matches the key or FALSE if it isn't found." type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="61">
+          <name>$key</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Setting" line="78" package="Default">
+        <name>set</name>
+        <full_name>set</full_name>
+        <docblock line="70">
+          <description>Sets a single key/value pair.</description>
+          <long-description>&lt;p&gt;If the given key already exists, that value is overridden.&lt;/p&gt;</long-description>
+          <tag line="70" name="param" description="The key to store the value at." type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="70" name="param" description="The value to store." type="mixed" variable="$value">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="78">
+          <name>$key</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="78">
+          <name>$value</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Setting" line="90" package="Default">
+        <name>load</name>
+        <full_name>load</full_name>
+        <docblock line="83">
+          <description>Loads an array of settings in to the current settings bank.</description>
+          <long-description>&lt;p&gt;This can be useful to load settings directly during runtime.&lt;/p&gt;</long-description>
+          <tag line="83" name="param" description="An array of key/value pairs to set." type="array" variable="$settings">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="90">
+          <name>$settings</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Setting" line="113" package="Default">
+        <name>loadConfigFile</name>
+        <full_name>loadConfigFile</full_name>
+        <docblock line="97">
+          <description>Loads the specified configuration file.</description>
+          <long-description>&lt;p&gt;If $configFilePath is empty, it will attempt to load &lt;strong&gt;DIR&lt;/strong&gt; . '/settings.ini'.
+If $configFileType is empty, it will attempt to auto-detect the type based on extension, defaulting to ini type
+if it fails to auto-detect.&lt;/p&gt;
+
+&lt;p&gt;Three config file types are supported:
+- ini - An ini-style configuration.
+- yml/yaml - A YAML-style configuration.
+- xml - An XML style configuration.&lt;/p&gt;</long-description>
+          <tag line="97" name="param" description="The absolute path to the config file to load." type="string" variable="$configFilePath">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="97" name="param" description="The config file type. Defaults to auto-detect." type="string" variable="$configFileType">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="97" name="throws" description="If $configFileType isn't a usable type." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="113">
+          <name>$configFilePath</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="113">
+          <name>$configFileType</name>
+          <default>''</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css\Setting" line="143" package="Default">
+        <name>detectConfigType</name>
+        <full_name>detectConfigType</full_name>
+        <docblock line="135">
+          <description>Given a $configFile path, attempts to auto-detect one of the supported types.</description>
+          <long-description>&lt;p&gt;If it can't find a supported type, it defaults to ini-type.&lt;/p&gt;</long-description>
+          <tag line="135" name="param" description="The absolute path of a configFile." type="\Xazure\Css\Setting\" variable="$configFile"/>
+          <tag line="135" name="return" description="The config type that was matched, which will be &quot;yml&quot;, &quot;yaml&quot;, &quot;xml&quot;, or &quot;ini&quot;." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="143">
+          <name>$configFile</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css\Setting" line="158" package="Default">
+        <name>loadYamlConfigFile</name>
+        <full_name>loadYamlConfigFile</full_name>
+        <docblock line="152">
+          <description>Parses the given Yaml file and stores the resulting data in $this-&gt;settings.</description>
+          <long-description/>
+          <tag line="152" name="param" description="Absolute path to config file." type="string" variable="$configFilePath">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="152" name="throws" description="If the file fails to load or yaml_parse_file is unavailable." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="158">
+          <name>$configFilePath</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css\Setting" line="180" package="Default">
+        <name>loadXmlConfigFile</name>
+        <full_name>loadXmlConfigFile</full_name>
+        <docblock line="173">
+          <description>Parses the given XML file and stores the resulting data in $this-&gt;settings.</description>
+          <long-description/>
+          <tag line="173" name="param" description="Absolute path to config file." type="string" variable="$configFilePath">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="173" name="throws" description="Always, since it isn't implemented." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+          <tag line="173" name="todo" description="Implement this when someone requests it or someone is really bored."/>
+        </docblock>
+        <argument line="180">
+          <name>$configFilePath</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css\Setting" line="191" package="Default">
+        <name>loadIniConfigFile</name>
+        <full_name>loadIniConfigFile</full_name>
+        <docblock line="185">
+          <description>Parses the given INI file and stores the resulting data in $this-&gt;settings.</description>
+          <long-description/>
+          <tag line="185" name="param" description="Absolute path to config file." type="string" variable="$configFilePath">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="185" name="throws" description="If the file fails to load." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="191">
+          <name>$configFilePath</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Element/ValueInterface.php" hash="b7ea373d352bdd7fe7bcc01283d668d3" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <interface namespace="Xazure\Css\Element" line="17" package="Default">
+      <name>ValueInterface</name>
+      <full_name>\Xazure\Css\Element\ValueInterface</full_name>
+      <docblock line="12">
+        <description>An interface any element which uses a value should implement.</description>
+        <long-description>&lt;p&gt;This interface must be implemented by an element to target it with a ValueCallback.&lt;/p&gt;</long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="24" package="Default">
+        <name>getValue</name>
+        <full_name>getValue</full_name>
+        <docblock line="19">
+          <description>Get the value.</description>
+          <long-description/>
+          <tag line="19" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="31" package="Default">
+        <name>setValue</name>
+        <full_name>setValue</full_name>
+        <docblock line="26">
+          <description>Set the value.</description>
+          <long-description/>
+          <tag line="26" name="param" description="string" type="\Xazure\Css\Element\" variable="$value"/>
+        </docblock>
+        <argument line="31">
+          <name>$value</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+  </file>
+  <file path="Element/Blank.php" hash="fae47507d75fde06c296d0110849e398" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Element" line="17" package="Default">
+      <extends/>
+      <implements>\Xazure\Css\Element\ElementInterface</implements>
+      <name>Blank</name>
+      <full_name>\Xazure\Css\Element\Blank</full_name>
+      <docblock line="12">
+        <description>This element exists for the sole purpose of providing
+something that plugins can return when they want to remove
+the element they were given.</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="24" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="19">
+          <description>Converts Blank to an empty string.</description>
+          <long-description/>
+          <tag line="19" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="Element/ElementInterface.php" hash="2ab62292ba80793289a292be7da53b69" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <interface namespace="Xazure\Css\Element" line="15" package="Default">
+      <name>ElementInterface</name>
+      <full_name>\Xazure\Css\Element\ElementInterface</full_name>
+      <docblock line="12">
+        <description>The interface which all Elements must implement.</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="22" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="17">
+          <description>Converts the ElementInterface in to a string representation.</description>
+          <long-description/>
+          <tag line="17" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </interface>
+  </file>
+  <file path="Element/Block.php" hash="f6ff54411e8245257681771bd881165c" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Element" line="15" package="Default">
+      <extends>\Xazure\Css\Element\ElementGroup</extends>
+      <implements>\Xazure\Css\Element\SelectorInterface</implements>
+      <name>Block</name>
+      <full_name>\Xazure\Css\Element\Block</full_name>
+      <docblock line="12">
+        <description>Represents a CSS block of elements and selectors.</description>
+        <long-description/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="22" namespace="Xazure\Css\Element" package="Default">
+        <name>$selectors</name>
+        <default/>
+        <docblock line="17">
+          <description>An array of string selectors.</description>
+          <long-description/>
+          <tag line="17" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="29" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="24">
+          <description>Constructor.</description>
+          <long-description/>
+          <tag line="24" name="param" description="An array of string selectors." type="array" variable="$selectors">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="29">
+          <name>$selectors</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="39" package="Default">
+        <name>getSelectors</name>
+        <full_name>getSelectors</full_name>
+        <docblock line="34">
+          <description>Get selectors.</description>
+          <long-description/>
+          <tag line="34" name="return" description="An array of string selectors." type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="49" package="Default">
+        <name>setSelectors</name>
+        <full_name>setSelectors</full_name>
+        <docblock line="44">
+          <description>Set selectors.</description>
+          <long-description/>
+          <tag line="44" name="param" description="An array of string selectors" type="array" variable="$selectors">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="49">
+          <name>$selectors</name>
+          <default/>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="59" package="Default">
+        <name>addSelector</name>
+        <full_name>addSelector</full_name>
+        <docblock line="54">
+          <description>Add a selector.</description>
+          <long-description/>
+          <tag line="54" name="param" description="" type="string" variable="$selector">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="59">
+          <name>$selector</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="69" package="Default">
+        <name>removeSelector</name>
+        <full_name>removeSelector</full_name>
+        <docblock line="64">
+          <description>Removes all selectors with the given value.</description>
+          <long-description/>
+          <tag line="64" name="param" description="" type="string" variable="$selector">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="69">
+          <name>$selector</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="81" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="76">
+          <description>Converts Block to a string representation.</description>
+          <long-description/>
+          <tag line="76" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="Element/AtRule.php" hash="820c77eed7e6f80950bff603b6514b83" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Element" line="15" package="Default">
+      <extends>\Xazure\Css\Element\Property</extends>
+      <name>AtRule</name>
+      <full_name>\Xazure\Css\Element\AtRule</full_name>
+      <docblock line="12">
+        <description>Represents a single at-rule element (which does not contain a block).</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="22" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="16">
+          <description>Constructor.</description>
+          <long-description/>
+          <tag line="16" name="param" description="" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="16" name="param" description="" type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="22">
+          <name>$name</name>
+          <default>''</default>
+          <type/>
+        </argument>
+        <argument line="22">
+          <name>$value</name>
+          <default>''</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="31" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="26">
+          <description>Converts AtRule to a string.</description>
+          <long-description/>
+          <tag line="26" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="Element/Property.php" hash="6d009806226095020b4e77d819c7605d" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Element" line="15" package="Default">
+      <extends/>
+      <implements>\Xazure\Css\Element\ElementInterface</implements>
+      <implements>\Xazure\Css\Element\NameInterface</implements>
+      <implements>\Xazure\Css\Element\ValueInterface</implements>
+      <name>Property</name>
+      <full_name>\Xazure\Css\Element\Property</full_name>
+      <docblock line="12">
+        <description>Represents a single CSS property name/value pair.</description>
+        <long-description/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="22" namespace="Xazure\Css\Element" package="Default">
+        <name>$name</name>
+        <default/>
+        <docblock line="17">
+          <description>The name of the CSS property.</description>
+          <long-description/>
+          <tag line="17" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="29" namespace="Xazure\Css\Element" package="Default">
+        <name>$value</name>
+        <default/>
+        <docblock line="24">
+          <description>The value of the CSS property.</description>
+          <long-description/>
+          <tag line="24" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="37" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="31">
+          <description>Constructor.</description>
+          <long-description/>
+          <tag line="31" name="param" description="" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="31" name="param" description="" type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="37">
+          <name>$name</name>
+          <default>''</default>
+          <type/>
+        </argument>
+        <argument line="37">
+          <name>$value</name>
+          <default>''</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="47" package="Default">
+        <name>getName</name>
+        <full_name>getName</full_name>
+        <docblock line="42">
+          <description>Get the name.</description>
+          <long-description/>
+          <tag line="42" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="57" package="Default">
+        <name>getValue</name>
+        <full_name>getValue</full_name>
+        <docblock line="52">
+          <description>Get the value.</description>
+          <long-description/>
+          <tag line="52" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="67" package="Default">
+        <name>setName</name>
+        <full_name>setName</full_name>
+        <docblock line="62">
+          <description>Set the name.</description>
+          <long-description/>
+          <tag line="62" name="param" description="" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="67">
+          <name>$name</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="77" package="Default">
+        <name>setValue</name>
+        <full_name>setValue</full_name>
+        <docblock line="72">
+          <description>Set the value.</description>
+          <long-description/>
+          <tag line="72" name="param" description="" type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="77">
+          <name>$value</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="87" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="82">
+          <description>Converts the Property to a string representation.</description>
+          <long-description/>
+          <tag line="82" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="Element/ElementGroup.php" hash="41efb9d4027b7f2e522e03a80ac5a5b9" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Element" line="18" package="Default">
+      <extends/>
+      <implements>\Xazure\Css\Element\ElementInterface</implements>
+      <name>ElementGroup</name>
+      <full_name>\Xazure\Css\Element\ElementGroup</full_name>
+      <docblock line="12">
+        <description>Contains a collection of other ElementInterfaces.</description>
+        <long-description>&lt;p&gt;This is so we don't need an array to hold the base elements, but this, which is an
+instance of ElementInterface.&lt;/p&gt;</long-description>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="25" namespace="Xazure\Css\Element" package="Default">
+        <name>$elements</name>
+        <default/>
+        <docblock line="20">
+          <description>An array of ElementInterfaces.</description>
+          <long-description/>
+          <tag line="20" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="32" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="27">
+          <description>Constructor.</description>
+          <long-description/>
+          <tag line="27" name="param" description="An array of ElementInterfaces." type="array" variable="$elements">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="32">
+          <name>$elements</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="42" package="Default">
+        <name>getElements</name>
+        <full_name>getElements</full_name>
+        <docblock line="37">
+          <description>Get the elements.</description>
+          <long-description/>
+          <tag line="37" name="return" description="An array of ElementInterfaces." type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="52" package="Default">
+        <name>setElements</name>
+        <full_name>setElements</full_name>
+        <docblock line="47">
+          <description>Set the elements.</description>
+          <long-description/>
+          <tag line="47" name="param" description="An array of ElementInterfaces." type="array" variable="$elements">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="52">
+          <name>$elements</name>
+          <default/>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="62" package="Default">
+        <name>addElement</name>
+        <full_name>addElement</full_name>
+        <docblock line="57">
+          <description>Adds an element.</description>
+          <long-description/>
+          <tag line="57" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+        </docblock>
+        <argument line="62">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="72" package="Default">
+        <name>removeElement</name>
+        <full_name>removeElement</full_name>
+        <docblock line="67">
+          <description>Removes all elements which match the given value.</description>
+          <long-description/>
+          <tag line="67" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+        </docblock>
+        <argument line="72">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="84" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="79">
+          <description>Converts the ElementGroup to a string representation.</description>
+          <long-description/>
+          <tag line="79" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="Element/SelectorInterface.php" hash="fc7a2ad3c768f33f0286e3f6a7e4e848" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <interface namespace="Xazure\Css\Element" line="17" package="Default">
+      <name>SelectorInterface</name>
+      <full_name>\Xazure\Css\Element\SelectorInterface</full_name>
+      <docblock line="12">
+        <description>Any interface any element which uses selectors should implement.</description>
+        <long-description>&lt;p&gt;This must be implemented in order to target an element with a SelectorCallback.&lt;/p&gt;</long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="24" package="Default">
+        <name>getSelectors</name>
+        <full_name>getSelectors</full_name>
+        <docblock line="19">
+          <description>Get the selectors.</description>
+          <long-description/>
+          <tag line="19" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="31" package="Default">
+        <name>setSelectors</name>
+        <full_name>setSelectors</full_name>
+        <docblock line="26">
+          <description>Set the selectors</description>
+          <long-description/>
+          <tag line="26" name="param" description="An array of string selectors." type="array" variable="$selectors">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="31">
+          <name>$selectors</name>
+          <default/>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="38" package="Default">
+        <name>addSelector</name>
+        <full_name>addSelector</full_name>
+        <docblock line="33">
+          <description>Add a selector.</description>
+          <long-description/>
+          <tag line="33" name="param" description="" type="string" variable="$selector">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="38">
+          <name>$selector</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="45" package="Default">
+        <name>removeSelector</name>
+        <full_name>removeSelector</full_name>
+        <docblock line="40">
+          <description>Remove all selectors that match the given value.</description>
+          <long-description/>
+          <tag line="40" name="param" description="" type="string" variable="$selector">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="45">
+          <name>$selector</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+  </file>
+  <file path="Element/NameInterface.php" hash="67e8285164168f389400143f7c5591e5" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <interface namespace="Xazure\Css\Element" line="17" package="Default">
+      <name>NameInterface</name>
+      <full_name>\Xazure\Css\Element\NameInterface</full_name>
+      <docblock line="12">
+        <description>An interface any element which uses a name should implement.</description>
+        <long-description>&lt;p&gt;Implementing this is required to target it with a NameCallback.&lt;/p&gt;</long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="24" package="Default">
+        <name>getName</name>
+        <full_name>getName</full_name>
+        <docblock line="19">
+          <description>Get the name.</description>
+          <long-description/>
+          <tag line="19" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="31" package="Default">
+        <name>setName</name>
+        <full_name>setName</full_name>
+        <docblock line="26">
+          <description>Set the name.</description>
+          <long-description/>
+          <tag line="26" name="param" description="" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="31">
+          <name>$name</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+  </file>
+  <file path="Element/AtRuleBlock.php" hash="7c0c904e341639fa92a8e78daa70b2c9" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Element" line="15" package="Default">
+      <extends>\Xazure\Css\Element\ElementGroup</extends>
+      <implements>\Xazure\Css\Element\NameInterface</implements>
+      <implements>\Xazure\Css\Element\ValueInterface</implements>
+      <name>AtRuleBlock</name>
+      <full_name>\Xazure\Css\Element\AtRuleBlock</full_name>
+      <docblock line="12">
+        <description>Represents an at-rule which contains a block.</description>
+        <long-description/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="22" namespace="Xazure\Css\Element" package="Default">
+        <name>$name</name>
+        <default/>
+        <docblock line="17">
+          <description>The name of the at-rule block.</description>
+          <long-description/>
+          <tag line="17" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="29" namespace="Xazure\Css\Element" package="Default">
+        <name>$value</name>
+        <default/>
+        <docblock line="24">
+          <description>The value of the at-rule block.</description>
+          <long-description/>
+          <tag line="24" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="37" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="31">
+          <description>Constructor.</description>
+          <long-description/>
+          <tag line="31" name="param" description="" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="31" name="param" description="" type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="37">
+          <name>$name</name>
+          <default>""</default>
+          <type/>
+        </argument>
+        <argument line="37">
+          <name>$value</name>
+          <default>""</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="48" package="Default">
+        <name>getName</name>
+        <full_name>getName</full_name>
+        <docblock line="43">
+          <description>Get the name.</description>
+          <long-description/>
+          <tag line="43" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="58" package="Default">
+        <name>getValue</name>
+        <full_name>getValue</full_name>
+        <docblock line="53">
+          <description>Get the value.</description>
+          <long-description/>
+          <tag line="53" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="68" package="Default">
+        <name>setName</name>
+        <full_name>setName</full_name>
+        <docblock line="63">
+          <description>Set the name.</description>
+          <long-description/>
+          <tag line="63" name="param" description="" type="\Xazure\Css\Element\" variable="$name"/>
+        </docblock>
+        <argument line="68">
+          <name>$name</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="78" package="Default">
+        <name>setValue</name>
+        <full_name>setValue</full_name>
+        <docblock line="73">
+          <description>Set the value.</description>
+          <long-description/>
+          <tag line="73" name="param" description="" type="\Xazure\Css\Element\" variable="$value"/>
+        </docblock>
+        <argument line="78">
+          <name>$value</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Element" line="88" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="83">
+          <description>Converts AtRuleBlock to a string representation.</description>
+          <long-description/>
+          <tag line="83" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/BeautifyPlugin.php" hash="ca165edb09ebc42b78caf839eee2e77c" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin" line="25" package="Default">
+      <extends/>
+      <implements>\Xazure\Css\Plugin\PluginInterface</implements>
+      <name>BeautifyPlugin</name>
+      <full_name>\Xazure\Css\Plugin\BeautifyPlugin</full_name>
+      <docblock line="20">
+        <description>The BeautifyPlugin provides three modes for "pretty" output of the resultant CSS.</description>
+        <long-description>&lt;p&gt;BeautifyPlugin should be configured as the output_plugin if used.&lt;/p&gt;</long-description>
+      </docblock>
+      <constant namespace="Xazure\Css\Plugin" line="38" package="Default">
+        <name>MODE_EXPANDED</name>
+        <full_name>MODE_EXPANDED</full_name>
+        <value>"expanded"</value>
+        <docblock line="27">
+          <description>Expanded tabs everything and expands all blocks to multiple lines and adds extra whitespace.</description>
+          <long-description>&lt;p&gt;html, body {
+     color: #F00;
+}&lt;/p&gt;
+
+&lt;p&gt;p {
+     color: #000;
+}&lt;/p&gt;</long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Xazure\Css\Plugin" line="46" package="Default">
+        <name>MODE_COMPACT</name>
+        <full_name>MODE_COMPACT</full_name>
+        <value>"compact"</value>
+        <docblock line="40">
+          <description>Removes all tabs, some extra spaces, and puts each block on it's own line.</description>
+          <long-description>&lt;p&gt;html, body { color: #F00; }
+p { color: #000; }&lt;/p&gt;</long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Xazure\Css\Plugin" line="53" package="Default">
+        <name>MODE_MINIFIED</name>
+        <full_name>MODE_MINIFIED</full_name>
+        <value>"minified"</value>
+        <docblock line="48">
+          <description>Removes all unnecessary characters, including the last ; of a block.</description>
+          <long-description>&lt;p&gt;html,body{color:#F00}p{color:#000}&lt;/p&gt;</long-description>
+        </docblock>
+      </constant>
+      <property final="false" static="false" visibility="protected" line="60" namespace="Xazure\Css\Plugin" package="Default">
+        <name>$mode</name>
+        <default/>
+        <docblock line="55">
+          <description>Indicates the mode of output we should use.</description>
+          <long-description/>
+          <tag line="55" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin" line="76" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="62">
+          <description>Constructor.</description>
+          <long-description>&lt;p&gt;The only valid setting is mode, which should be either "expanded", "compact" or "minified".&lt;/p&gt;
+
+&lt;p&gt;If mode is omitted or invalid, "compact" is the default.&lt;/p&gt;
+
+&lt;p&gt;The mode specifies how the CSS is output.&lt;/p&gt;</long-description>
+          <tag line="62" name="param" description="An array of plugin settings." type="array" variable="$settings">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="62" name="see" description="\Xazure\Css\Plugin\BeautifyPlugin::MODE_EXPANDED" refers="\Xazure\Css\Plugin\BeautifyPlugin::MODE_EXPANDED"/>
+          <tag line="62" name="see" description="\Xazure\Css\Plugin\BeautifyPlugin::MODE_COMPACT" refers="\Xazure\Css\Plugin\BeautifyPlugin::MODE_COMPACT"/>
+          <tag line="62" name="see" description="\Xazure\Css\Plugin\BeautifyPlugin::MODE_MINIFIED" refers="\Xazure\Css\Plugin\BeautifyPlugin::MODE_MINIFIED"/>
+        </docblock>
+        <argument line="76">
+          <name>$settings</name>
+          <default/>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin" line="90" package="Default">
+        <name>registerCallbacks</name>
+        <full_name>registerCallbacks</full_name>
+        <docblock line="85">
+          <description>Registers a single OutputCallback.</description>
+          <long-description>&lt;p&gt;{@inheritdoc}&lt;/p&gt;</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin" line="103" package="Default">
+        <name>beautify</name>
+        <full_name>beautify</full_name>
+        <docblock line="97">
+          <description>Performs the beautification of the CSS.</description>
+          <long-description/>
+          <tag line="97" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="97" name="return" description="The beautified CSS source, ready for outputting." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="103">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css\Plugin" line="129" package="Default">
+        <name>printExpanded</name>
+        <full_name>printExpanded</full_name>
+        <docblock line="120">
+          <description>Generates the "expanded" mode CSS output.</description>
+          <long-description/>
+          <tag line="120" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="120" name="param" description="" type="string" variable="$output">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="120" name="param" description="" type="int" variable="$tabCount">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="120" name="return" description="The &quot;expanded&quot; CSS, ready for output." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="120" name="see" description="\Xazure\Css\Plugin\BeautifyPlugin::MODE_EXPANDED" refers="\Xazure\Css\Plugin\BeautifyPlugin::MODE_EXPANDED"/>
+        </docblock>
+        <argument line="129">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+        <argument line="129">
+          <name>$output</name>
+          <default>''</default>
+          <type/>
+        </argument>
+        <argument line="129">
+          <name>$tabCount</name>
+          <default>0</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css\Plugin" line="182" package="Default">
+        <name>printCompact</name>
+        <full_name>printCompact</full_name>
+        <docblock line="174">
+          <description>Generates the "compact" mode CSS output.</description>
+          <long-description/>
+          <tag line="174" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="174" name="param" description="" type="string" variable="$output">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="174" name="return" description="The &quot;compact&quot; CSS, ready for output." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="174" name="see" description="\Xazure\Css\Plugin\BeautifyPlugin::MODE_COMPACT" refers="\Xazure\Css\Plugin\BeautifyPlugin::MODE_COMPACT"/>
+        </docblock>
+        <argument line="182">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+        <argument line="182">
+          <name>$output</name>
+          <default>''</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css\Plugin" line="234" package="Default">
+        <name>printMinified</name>
+        <full_name>printMinified</full_name>
+        <docblock line="226">
+          <description>Generates the "minified" mode CSS output.</description>
+          <long-description/>
+          <tag line="226" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="226" name="param" description="" type="string" variable="$output">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="226" name="return" description="The &quot;minified&quot; CSS, ready for output." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="226" name="see" description="\Xazure\Css\Plugin\BeautifyPlugin::MODE_MINIFIED" refers="\Xazure\Css\Plugin\BeautifyPlugin::MODE_MINIFIED"/>
+        </docblock>
+        <argument line="234">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+        <argument line="234">
+          <name>$output</name>
+          <default>''</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/PluginInterface.php" hash="fd7b4460d39cbd28ce46c43a326aef39" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <interface namespace="Xazure\Css\Plugin" line="19" package="Default">
+      <name>PluginInterface</name>
+      <full_name>\Xazure\Css\Plugin\PluginInterface</full_name>
+      <docblock line="12">
+        <description>This is the base for all plugins.</description>
+        <long-description>&lt;p&gt;All plugins must declare registerCallbacks, which should return an
+array of Callback\Callback objects, which will then be called at the appropriate
+time.&lt;/p&gt;</long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin" line="26" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="21">
+          <description>Constructor.</description>
+          <long-description/>
+          <tag line="21" name="param" description="An array of settings that are defined elsewhere, usually a config file." type="array" variable="$settings">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="26">
+          <name>$settings</name>
+          <default/>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin" line="39" package="Default">
+        <name>registerCallbacks</name>
+        <full_name>registerCallbacks</full_name>
+        <docblock line="28">
+          <description>Registers an array of callbacks.</description>
+          <long-description>&lt;p&gt;Any non-abstract instance of Callback can be registered. Which instance you use
+dictates what it will match. For example, the PropertyValueCallback can only match
+ElementInterfaces of Property.&lt;/p&gt;
+
+&lt;p&gt;All objects returns in this array must be an instance of Callback.&lt;/p&gt;</long-description>
+          <tag line="28" name="return" description="An array of Callback\Callbacks." type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+    </interface>
+  </file>
+  <file path="Plugin/AtVarPlugin.php" hash="1a3830793ed25bc966fad687a51c530e" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin" line="37" package="Default">
+      <extends/>
+      <implements>\Xazure\Css\Plugin\PluginInterface</implements>
+      <name>AtVarPlugin</name>
+      <full_name>\Xazure\Css\Plugin\AtVarPlugin</full_name>
+      <docblock line="19">
+        <description>The AtVarPlugin provides simple CSS variables using the @var rule.</description>
+        <long-description>&lt;p&gt;Currently, @var only supports the assignment operator (=).&lt;/p&gt;
+
+&lt;p&gt;To use @var, write a value in the form of @var varName = value:&lt;/p&gt;</long-description>
+        <tag line="19" name="var" description="= &quot;#F00&quot;; To output the variable anywhere in any AtRule, AtRuleBlock or Property value, write in in the form [$varName]: body { color: [$myColor]; }" type="\Xazure\Css\Plugin\myColor">
+          <type by_reference="false">\Xazure\Css\Plugin\myColor</type>
+        </tag>
+        <tag line="19" name="todo" description="Add more operators and proper distinction between string and numeric values, as well as other variables."/>
+      </docblock>
+      <constant namespace="Xazure\Css\Plugin" line="42" package="Default">
+        <name>VALUE_REGEX</name>
+        <full_name>VALUE_REGEX</full_name>
+        <value>'/\[\$([^\]]*)\]/'</value>
+        <docblock line="39">
+          <description>The regex pattern we use to spot a variable in a value.</description>
+          <long-description/>
+        </docblock>
+      </constant>
+      <property final="false" static="false" visibility="protected" line="49" namespace="Xazure\Css\Plugin" package="Default">
+        <name>$vars</name>
+        <default/>
+        <docblock line="44">
+          <description>All currently defined variable values.</description>
+          <long-description/>
+          <tag line="44" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin" line="56" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="51">
+          <description>Constructor.</description>
+          <long-description/>
+          <tag line="51" name="param" description="An array of plugin settings." type="array" variable="$settings">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="56">
+          <name>$settings</name>
+          <default/>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin" line="66" package="Default">
+        <name>registerCallbacks</name>
+        <full_name>registerCallbacks</full_name>
+        <docblock line="60">
+          <description>Registers callbacks against AtRule to process @var, and AtRuleValue, AtRuleBlockValue and PropertyValue
+to output variables.</description>
+          <long-description>&lt;p&gt;{@inheritdoc}&lt;/p&gt;</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin" line="82" package="Default">
+        <name>processVar</name>
+        <full_name>processVar</full_name>
+        <docblock line="76">
+          <description>Process an @var AtRule.</description>
+          <long-description/>
+          <tag line="76" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="76" name="return" description="" type="\Xazure\Css\Element\Blank">
+            <type by_reference="false">\Xazure\Css\Element\Blank</type>
+          </tag>
+        </docblock>
+        <argument line="82">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin" line="99" package="Default">
+        <name>echoVar</name>
+        <full_name>echoVar</full_name>
+        <docblock line="93">
+          <description>Replaces the variable reference with its value.</description>
+          <long-description/>
+          <tag line="93" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="93" name="return" description="" type="\Xazure\Css\Element\ElementInterface">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+        </docblock>
+        <argument line="99">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css\Plugin" line="117" package="Default">
+        <name>replaceMatchWithValue</name>
+        <full_name>replaceMatchWithValue</full_name>
+        <docblock line="110">
+          <description>Performs the replacement on variable reference matches.</description>
+          <long-description/>
+          <tag line="110" name="param" description="A match array from preg_replace_callback, with $matches[1] being the variable name." type="array" variable="$matches">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="110" name="return" description="The value of the variable." type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="110" name="throws" description="If the referenced variable does not exist." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="117">
+          <name>$matches</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/GlobalCallback.php" hash="696ae37e5dc1809f3bf866a339ff9af7" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\Callback" line="18" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\Callback</extends>
+      <name>GlobalCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\GlobalCallback</full_name>
+      <docblock line="12">
+        <description>Callback which will be run against the root ElementGroup of a stylesheet.</description>
+        <long-description>&lt;p&gt;There is nothing special about GlobalCallback that makes it match only the root node.
+Instead, there is a special case in Generator::applyPluginRecurse() to ensure this.&lt;/p&gt;</long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="24" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="20">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="20" name="param" description="The callback function to run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+        </docblock>
+        <argument line="24">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/PropertyValueCallback.php" hash="859074d7ed563af5c066b42fb9172d36" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\Callback" line="15" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\ValueCallback</extends>
+      <name>PropertyValueCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\PropertyValueCallback</full_name>
+      <docblock line="12">
+        <description>Callback which targets a Property by its value.</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="24" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="17">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="17" name="param" description="The value to compare against." type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="17" name="param" description="The callback function to run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+          <tag line="17" name="param" description="Indicates if we should treat $value as a PCRE pattern." type="bool" variable="$isRegex">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="24">
+          <name>$value</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$isRegex</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/NameCallback.php" hash="9d3712ea44d6c8bb8c639282886e439f" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="true" namespace="Xazure\Css\Plugin\Callback" line="21" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\Callback</extends>
+      <name>NameCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\NameCallback</full_name>
+      <docblock line="15">
+        <description>A callback which targets elements based on their name that implement
+the NameInterface.</description>
+        <long-description>&lt;p&gt;This is an abstract class, so it can not be used directly.&lt;/p&gt;</long-description>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="28" namespace="Xazure\Css\Plugin\Callback" package="Default">
+        <name>$name</name>
+        <default/>
+        <docblock line="23">
+          <description>The name to compare against.</description>
+          <long-description/>
+          <tag line="23" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="35" namespace="Xazure\Css\Plugin\Callback" package="Default">
+        <name>$isRegex</name>
+        <default/>
+        <docblock line="30">
+          <description>Indicates if we should treat name as a PCRE pattern.</description>
+          <long-description/>
+          <tag line="30" name="var" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="52" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="37">
+          <description>Constructor.</description>
+          <long-description>&lt;p&gt;If $isRegex, $name should be a value PCRE string.
+It will then be evaluated against the elements name for testing.&lt;/p&gt;
+
+&lt;p&gt;If $isRegex is false, $name should be a string literal which is compared to the element.&lt;/p&gt;
+
+&lt;p&gt;If $name is empty, an element with any name can pass that criteria.&lt;/p&gt;</long-description>
+          <tag line="37" name="param" description="The name to compare against, either a PCRE pattern or a string literal." type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="37" name="param" description="The full class which the element should be compared against." type="string" variable="$elementClass">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="37" name="param" description="The callback function to run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+          <tag line="37" name="param" description="If $name should be treated as regex or not." type="bool" variable="$isRegex">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="52">
+          <name>$name</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="52">
+          <name>$elementClass</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="52">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="52">
+          <name>$isRegex</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="73" package="Default">
+        <name>isMatch</name>
+        <full_name>isMatch</full_name>
+        <docblock line="60">
+          <description>Compares $element against a set of criteria.</description>
+          <long-description>&lt;p&gt;To return true, $element must:
+- Be an instance of the class give specified by $elementClass in the constructor.
+- Be an instance of NameInterface.
+- $isRegex must be true and the element's name must preg_match() $name from the constructor OR
+- $isRegex must be false and the element's name must be equal to $name from the constructor OR
+- The $name supplied to the constructor is empty.&lt;/p&gt;</long-description>
+          <tag line="60" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="60" name="return" description="Indicates if $element met the criteria." type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="73">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/AtRuleValueCallback.php" hash="0d293006fb792a60ce52939f6389eff9" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\Callback" line="15" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\ValueCallback</extends>
+      <name>AtRuleValueCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\AtRuleValueCallback</full_name>
+      <docblock line="12">
+        <description>Callback which targets an AtRule by its value.</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="24" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="17">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="17" name="param" description="The value to compare against." type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="17" name="param" description="The callback function to run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+          <tag line="17" name="param" description="Indicates if we should treat $value as a PCRE pattern." type="bool" variable="$isRegex">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="24">
+          <name>$value</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$isRegex</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/AtRuleBlockValueCallback.php" hash="a1557e688120345430673bb47431b88e" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\Callback" line="15" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\ValueCallback</extends>
+      <name>AtRuleBlockValueCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\AtRuleBlockValueCallback</full_name>
+      <docblock line="12">
+        <description>Callback which targets an AtRuleBlock by its value.</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="24" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="17">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="17" name="param" description="The value to compare against." type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="17" name="param" description="The callback function to run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+          <tag line="17" name="param" description="Indicates if we should treat $value as a PCRE pattern." type="bool" variable="$isRegex">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="24">
+          <name>$value</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$isRegex</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/BlockSelectorCallback.php" hash="5c76928ab8e4a952455d065fa770f4f5" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\Callback" line="15" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\SelectorCallback</extends>
+      <name>BlockSelectorCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\BlockSelectorCallback</full_name>
+      <docblock line="12">
+        <description>Callback which targets Blocks by their selectors.</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="25" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="17">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="17" name="param" description="An array of string selctors." type="array" variable="$selectors">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="17" name="param" description="The callback function to run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+          <tag line="17" name="param" description="Indicates if the element has to match all selectors in $selectors." type="bool" variable="$matchAll">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="17" name="param" description="Indicates if we need to treat $selectors as PCRE patterns." type="bool" variable="$isRegex">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="25">
+          <name>$selectors</name>
+          <default/>
+          <type>array</type>
+        </argument>
+        <argument line="25">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="25">
+          <name>$matchAll</name>
+          <default>false</default>
+          <type/>
+        </argument>
+        <argument line="25">
+          <name>$isRegex</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/AtRuleBlockCallback.php" hash="791cb13e4e469198f74851ba5d8b85b3" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\Callback" line="15" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\NameCallback</extends>
+      <name>AtRuleBlockCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\AtRuleBlockCallback</full_name>
+      <docblock line="12">
+        <description>Callback which targets an AtRuleBlock by its name.</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="24" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="17">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="17" name="param" description="The name to compare against." type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="17" name="param" description="The callback function to run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+          <tag line="17" name="param" description="Indicates if we should treat $name as a PCRE pattern." type="bool" variable="$isRegex">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="24">
+          <name>$name</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$isRegex</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/AtRuleCallback.php" hash="f2da42eb5b199225d06520d37a2607e6" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\Callback" line="15" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\NameCallback</extends>
+      <name>AtRuleCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\AtRuleCallback</full_name>
+      <docblock line="12">
+        <description>Callback which targets an AtRule based on its name.</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="24" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="17">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="17" name="param" description="The name to compare against." type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="17" name="param" description="The callback function to run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+          <tag line="17" name="param" description="Indicates if we should treat $name as a PCRE pattern." type="bool" variable="$isRegex">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="24">
+          <name>$name</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$isRegex</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/OutputCallback.php" hash="bdf0aa3d1554078d141a4ecce62618db" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\Callback" line="24" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\GlobalCallback</extends>
+      <name>OutputCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\OutputCallback</full_name>
+      <docblock line="14">
+        <description>Callback which can only be run against the root element during output.</description>
+        <long-description>&lt;p&gt;This callback can only be called when it is implemented as an output_plugin.
+This callback is completely skipped (via a special case in Generator::applyPluginRecurse()) during
+normal plugin processing.&lt;/p&gt;
+
+&lt;p&gt;Only one of these should be configured. Multiple OutputCallbacks registered at once in an
+output_plugin will throw an error.&lt;/p&gt;</long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="31" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="26">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="26" name="param" description="The callback to call when this callback is run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+        </docblock>
+        <argument line="31">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="47" package="Default">
+        <name>run</name>
+        <full_name>run</full_name>
+        <docblock line="36">
+          <description>Runs the callback function against the element.</description>
+          <long-description>&lt;p&gt;This version of run() overrides the normal safety check to make
+sure that the callback function returned an ElementInterface.&lt;/p&gt;
+
+&lt;p&gt;It should return a string, or something that can be cast as a string.&lt;/p&gt;</long-description>
+          <tag line="36" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="36" name="return" description="" type="mixed|\Xazure\Css\Element\ElementInterface">
+            <type by_reference="false">mixed</type>
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+        </docblock>
+        <argument line="47">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/BlockCallback.php" hash="38eb3cfe07b2400049c1c2e80ef018a5" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\Callback" line="15" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\Callback</extends>
+      <name>BlockCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\BlockCallback</full_name>
+      <docblock line="12">
+        <description>Callback which targets all Blocks.</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="22" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="17">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="17" name="param" description="The callback to call when this callback is run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+        </docblock>
+        <argument line="22">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/SelectorCallback.php" hash="1ef11445a8607140017971287d8f466b" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="true" namespace="Xazure\Css\Plugin\Callback" line="21" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\Callback</extends>
+      <name>SelectorCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\SelectorCallback</full_name>
+      <docblock line="15">
+        <description>A callback which targets a elements by their selector that implement
+the SelectorInterface.</description>
+        <long-description>&lt;p&gt;This is an abstract class and cannot be used directly.&lt;/p&gt;</long-description>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="28" namespace="Xazure\Css\Plugin\Callback" package="Default">
+        <name>$selectors</name>
+        <default/>
+        <docblock line="23">
+          <description>Array of string selectors.</description>
+          <long-description/>
+          <tag line="23" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="35" namespace="Xazure\Css\Plugin\Callback" package="Default">
+        <name>$matchAll</name>
+        <default/>
+        <docblock line="30">
+          <description>Indicates if an element must match all selectors.</description>
+          <long-description/>
+          <tag line="30" name="var" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="42" namespace="Xazure\Css\Plugin\Callback" package="Default">
+        <name>$isRegex</name>
+        <default/>
+        <docblock line="37">
+          <description>Indicates if we should treat selectors as PCRE patterns.</description>
+          <long-description/>
+          <tag line="37" name="var" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="61" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="44">
+          <description>Constructor.</description>
+          <long-description>&lt;p&gt;If $matchAll, the block must contain all selectors that are found in $selectors (though it can also
+contain more). If $matchAll is false, it must only match one.&lt;/p&gt;
+
+&lt;p&gt;If $isRegex, each selector in $selectors is treated as a PCRE pattern and matched against each block
+selector.&lt;/p&gt;
+
+&lt;p&gt;If $isRegex is false, each selector is treated as a string literal and a simple comparison is performed.&lt;/p&gt;</long-description>
+          <tag line="44" name="param" description="An array of string selectors, either PCRE patterns or string literals." type="array" variable="$selectors">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="44" name="param" description="The full class that the element must be an instance of." type="string" variable="$elementClass">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="44" name="param" description="The callback function to call." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+          <tag line="44" name="param" description="Indicates if a block must match all $selectors to match." type="bool" variable="$matchAll">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="44" name="param" description="Indicates how to treat $selectors." type="bool" variable="$isRegex">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="61">
+          <name>$selectors</name>
+          <default/>
+          <type>array</type>
+        </argument>
+        <argument line="61">
+          <name>$elementClass</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="61">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="61">
+          <name>$matchAll</name>
+          <default>false</default>
+          <type/>
+        </argument>
+        <argument line="61">
+          <name>$isRegex</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="84" package="Default">
+        <name>isMatch</name>
+        <full_name>isMatch</full_name>
+        <docblock line="70">
+          <description>Compares the element to the criteria of this callback.</description>
+          <long-description>&lt;p&gt;To return true, the element must:
+- Be an instance of the class specified by $elementClass in the constructor.
+- Be an instance of SelectorInterface.
+- If $matchAll, it must match all selectors found in $selector OR
+- If $matchAll is false, it must match at least one selector.
+- If $isRegex, it must match selectors as a PCRE pattern OR
+- If $isRegex is false, it must equal selectors as string literals.&lt;/p&gt;</long-description>
+          <tag line="70" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="70" name="return" description="Indicates if the element matches the criteria of this callback." type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="84">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/Callback.php" hash="804437acbeaaf1683a4c997620000942" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="true" namespace="Xazure\Css\Plugin\Callback" line="19" package="Default">
+      <extends/>
+      <name>Callback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\Callback</full_name>
+      <docblock line="14">
+        <description>The base Callback which all other plugin callbacks should extends.</description>
+        <long-description>&lt;p&gt;This is an abstract class and cannot be used directly.&lt;/p&gt;</long-description>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="26" namespace="Xazure\Css\Plugin\Callback" package="Default">
+        <name>$callback</name>
+        <default/>
+        <docblock line="21">
+          <description>The callback function to call.</description>
+          <long-description/>
+          <tag line="21" name="var" description="" type="callable">
+            <type by_reference="false">callable</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="33" namespace="Xazure\Css\Plugin\Callback" package="Default">
+        <name>$elementClass</name>
+        <default/>
+        <docblock line="28">
+          <description>The element class the callback targets.</description>
+          <long-description/>
+          <tag line="28" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="41" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="35">
+          <description>Constructor.</description>
+          <long-description/>
+          <tag line="35" name="param" description="The full class the tested elements must be an instance of." type="string" variable="$elementClass">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="35" name="param" description="The callback to call when this callback is run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+        </docblock>
+        <argument line="41">
+          <name>$elementClass</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="41">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="56" package="Default">
+        <name>getCallback</name>
+        <full_name>getCallback</full_name>
+        <docblock line="51">
+          <description>Get the callback.</description>
+          <long-description/>
+          <tag line="51" name="return" description="" type="callable">
+            <type by_reference="false">callable</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="66" package="Default">
+        <name>getElementClass</name>
+        <full_name>getElementClass</full_name>
+        <docblock line="61">
+          <description>Get the element class string.</description>
+          <long-description/>
+          <tag line="61" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="77" package="Default">
+        <name>isMatch</name>
+        <full_name>isMatch</full_name>
+        <docblock line="71">
+          <description>Given an Element, it should indicate if this matches the callback.</description>
+          <long-description/>
+          <tag line="71" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="71" name="return" description="" type="Boolean">
+            <type by_reference="false">Boolean</type>
+          </tag>
+        </docblock>
+        <argument line="77">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="93" package="Default">
+        <name>run</name>
+        <full_name>run</full_name>
+        <docblock line="82">
+          <description>Given an Element, it should run the callback against it and
+return the results of the Callback.</description>
+          <long-description>&lt;p&gt;The callback should return an ElementInterface.&lt;/p&gt;
+
+&lt;p&gt;If more than one Element needs to be returned, return them in an ElementGroup.&lt;/p&gt;</long-description>
+          <tag line="82" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="82" name="return" description="" type="\Xazure\Css\Element\ElementInterface">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+        </docblock>
+        <argument line="93">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css\Plugin\Callback" line="110" package="Default">
+        <name>callbackToString</name>
+        <full_name>callbackToString</full_name>
+        <docblock line="104">
+          <description>Converts a callback to a string.</description>
+          <long-description/>
+          <tag line="104" name="param" description="" type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+          <tag line="104" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="110">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="124" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="119">
+          <description>Gives the callback as a string for easy printing.</description>
+          <long-description/>
+          <tag line="119" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/ValueCallback.php" hash="5a7844151ed68b28438b640cb47f42fa" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="true" namespace="Xazure\Css\Plugin\Callback" line="21" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\Callback</extends>
+      <name>ValueCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\ValueCallback</full_name>
+      <docblock line="15">
+        <description>A callback which targets elements based on their value that implement
+the ValueInterface.</description>
+        <long-description>&lt;p&gt;This is an abstract class, so it can not be used directly.&lt;/p&gt;</long-description>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="28" namespace="Xazure\Css\Plugin\Callback" package="Default">
+        <name>$value</name>
+        <default/>
+        <docblock line="23">
+          <description>The value to compare against.</description>
+          <long-description/>
+          <tag line="23" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="35" namespace="Xazure\Css\Plugin\Callback" package="Default">
+        <name>$isRegex</name>
+        <default/>
+        <docblock line="30">
+          <description>Indicates if we should treat value as a PCRE pattern.</description>
+          <long-description/>
+          <tag line="30" name="var" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="51" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="37">
+          <description>Constructor.</description>
+          <long-description>&lt;p&gt;If $isRegex, $value should be a valid PCRE regex string.
+It will then be considered to match this callback if it matches in a preg_match().&lt;/p&gt;
+
+&lt;p&gt;If $isRegex is false, $value can be any string and will only match
+if the value of the tested element is identical.&lt;/p&gt;</long-description>
+          <tag line="37" name="param" description="If $isRegex, a PCRE regex string to match; if !$isRegex, a string to compare against value." type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="37" name="param" description="The full namespace and class of the element to target." type="string" variable="$elementClass">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="37" name="param" description="The callback function to run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+          <tag line="37" name="param" description="Indicates if $value should be used as a regex pattern or a string literal." type="bool" variable="$isRegex">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="51">
+          <name>$value</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="51">
+          <name>$elementClass</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="51">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="51">
+          <name>$isRegex</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="71" package="Default">
+        <name>isMatch</name>
+        <full_name>isMatch</full_name>
+        <docblock line="59">
+          <description>Compares $element against a set of criteria.</description>
+          <long-description>&lt;p&gt;To return true, $element must:
+- Be an instance of the $elementClass provided in constructor.
+- Be an instance of ValueInterface.
+- $isRegex must be true and $element-&gt;getValue() must match the $value pattern OR
+- $isRegex must be false and $element-&gt;getValue() must equal $value.&lt;/p&gt;</long-description>
+          <tag line="59" name="param" description="The element to test." type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="59" name="return" description="If the element matched the criteria." type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="71">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/Callback/PropertyCallback.php" hash="ff3d1db8c9b66e31817435eb27f54e90" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\Callback" line="15" package="Default">
+      <extends>\Xazure\Css\Plugin\Callback\NameCallback</extends>
+      <name>PropertyCallback</name>
+      <full_name>\Xazure\Css\Plugin\Callback\PropertyCallback</full_name>
+      <docblock line="12">
+        <description>Callback which targets a Property by its name.</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\Callback" line="24" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="17">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="17" name="param" description="The name to compare against." type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="17" name="param" description="The callback function to run." type="callable" variable="$callback">
+            <type by_reference="false">callable</type>
+          </tag>
+          <tag line="17" name="param" description="Indicates if we should treat $name as a PCRE pattern." type="bool" variable="$isRegex">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="24">
+          <name>$name</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$callback</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$isRegex</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/NoPrefix/Property/BorderRadiusProperty.php" hash="7f37ab675f64bc24dce532484838734a" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\NoPrefix\Property" line="19" package="Default">
+      <extends>\Xazure\Css\Element\Property</extends>
+      <name>BorderRadiusProperty</name>
+      <full_name>\Xazure\Css\Plugin\NoPrefix\Property\BorderRadiusProperty</full_name>
+      <docblock line="16">
+        <description>Implements the border-radius property for NoPrefixPlugin.</description>
+        <long-description></long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\NoPrefix\Property" line="26" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="21">
+          <description>{@inheritdoc}</description>
+          <long-description></long-description>
+          <tag line="21" name="param" description="An array of browser shortcode/supported version pairs." type="array" variable="$browsers">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="26">
+          <name>$browsers</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\NoPrefix\Property" line="34" package="Default">
+        <name>getPropertyName</name>
+        <full_name>getPropertyName</full_name>
+        <docblock line="31">
+          <description>{@inheritdoc}</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\NoPrefix\Property" line="47" package="Default">
+        <name>process</name>
+        <full_name>process</full_name>
+        <docblock line="39">
+          <description>Adds the -webkit-prefixed border-radius if iOS 3.1 or Android 2.1 are supported.</description>
+          <long-description>&lt;p&gt;{@inheritdoc}&lt;/p&gt;</long-description>
+          <tag line="39" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="39" name="return" description="" type="\Xazure\Css\Element\ElementInterface">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+        </docblock>
+        <argument line="47">
+          <name>$element</name>
+          <default></default>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/NoPrefix/Property/Property.php" hash="80d5058c79414fb0966dd404d2effa26" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="true" namespace="Xazure\Plugin\NoPrefix\Property" line="21" package="Default">
+      <extends/>
+      <implements>\Xazure\Css\Plugin\NoPrefix\Property\PropertyInterface</implements>
+      <name>Property</name>
+      <full_name>\Xazure\Plugin\NoPrefix\Property\Property</full_name>
+      <docblock line="15">
+        <description>Property is an abstract implementation of PropertyInterface.</description>
+        <long-description>&lt;p&gt;Property implements some of the basics and adds a few helpful functions. Other Properties can
+extend this if it is helpful, or they can just implement PropertyInterface.&lt;/p&gt;</long-description>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="28" namespace="Xazure\Plugin\NoPrefix\Property" package="Default">
+        <name>$browsers</name>
+        <default/>
+        <docblock line="23">
+          <description>An array of browser shortcode/supported version pairs.</description>
+          <long-description/>
+          <tag line="23" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Plugin\NoPrefix\Property" line="35" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="30">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="30" name="param" description="An array of browser shortcode/supported version pairs." type="array" variable="$browsers">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="35">
+          <name>$browsers</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Xazure\Plugin\NoPrefix\Property" line="46" package="Default">
+        <name>process</name>
+        <full_name>process</full_name>
+        <docblock line="40">
+          <description>{@inheritdoc}</description>
+          <long-description/>
+          <tag line="40" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="40" name="return" description="" type="\Xazure\Css\Element\ElementInterface">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+        </docblock>
+        <argument line="46">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Plugin\NoPrefix\Property" line="61" package="Default">
+        <name>includeSupport</name>
+        <full_name>includeSupport</full_name>
+        <docblock line="48">
+          <description>Given an array of browsers/version pairs, checks against
+browsers to indicate if this should be supported.</description>
+          <long-description>&lt;p&gt;This can be used to determine if any of a related group of browsers is supported,
+so you can output the appropriate prefixed properties.&lt;/p&gt;
+
+&lt;p&gt;If any of the browsers in $browsers matches a key in $this-&gt;browsers and
+the version in $browsers is &gt;= $this-&gt;browsers version, this function return true.&lt;/p&gt;</long-description>
+          <tag line="48" name="param" description="An array of browser shortcodes/supported versions to check against." type="array" variable="$browsers">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="48" name="return" description="Indicates if any of the supplied browsers are supported." type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="61">
+          <name>$browsers</name>
+          <default/>
+          <type>array</type>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Plugin/NoPrefix/Property/PropertyInterface.php" hash="d07fbe96e723ba9b713e2bf2872716e4" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <interface namespace="Xazure\Css\Plugin\NoPrefix\Property" line="17" package="Default">
+      <name>PropertyInterface</name>
+      <full_name>\Xazure\Css\Plugin\NoPrefix\Property\PropertyInterface</full_name>
+      <docblock line="14">
+        <description>All NoPrefixPlugin Properties must implement this interface.</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\NoPrefix\Property" line="24" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="19">
+          <description>Construct.</description>
+          <long-description/>
+          <tag line="19" name="param" description="An array of browser shortcodes/supported version pairs." type="array" variable="$browsers">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="24">
+          <name>$browsers</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\NoPrefix\Property" line="32" package="Default">
+        <name>process</name>
+        <full_name>process</full_name>
+        <docblock line="26">
+          <description>Processes the element and returns the processed elements.</description>
+          <long-description/>
+          <tag line="26" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="26" name="return" description="The processed elements." type="\Xazure\Css\Element\ElementInterface">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+        </docblock>
+        <argument line="32">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\NoPrefix\Property" line="39" package="Default">
+        <name>getPropertyName</name>
+        <full_name>getPropertyName</full_name>
+        <docblock line="34">
+          <description>The CSS property which this class handles.</description>
+          <long-description/>
+          <tag line="34" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </interface>
+  </file>
+  <file path="Plugin/NoPrefix/NoPrefixPlugin.php" hash="2612ee949d5f6d7fd757f79e1b234c30" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css\Plugin\NoPrefix" line="21" package="Default">
+      <extends/>
+      <implements>\Xazure\Css\Plugin\PluginInterface</implements>
+      <name>NoPrefixPlugin</name>
+      <full_name>\Xazure\Css\Plugin\NoPrefix\NoPrefixPlugin</full_name>
+      <docblock line="17">
+        <description>NoPrefixPlugin implements functionality which will automatically add
+prefixed versions of non-prefixed properties as needed.</description>
+        <long-description/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="28" namespace="Xazure\Css\Plugin\NoPrefix" package="Default">
+        <name>$properties</name>
+        <default/>
+        <docblock line="23">
+          <description>An array of registered properties.</description>
+          <long-description/>
+          <tag line="23" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="36" namespace="Xazure\Css\Plugin\NoPrefix" package="Default">
+        <name>$browsers</name>
+        <default/>
+        <docblock line="30">
+          <description>An array of supported browsers, in the form of
+browser shortcode/supported version pairs.</description>
+          <long-description/>
+          <tag line="30" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="43" namespace="Xazure\Css\Plugin\NoPrefix" package="Default">
+        <name>$include</name>
+        <default/>
+        <docblock line="38">
+          <description>An array of CSS property names to include.</description>
+          <long-description/>
+          <tag line="38" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="50" namespace="Xazure\Css\Plugin\NoPrefix" package="Default">
+        <name>$exclude</name>
+        <default/>
+        <docblock line="45">
+          <description>An array of CSS property names to exclude.</description>
+          <long-description/>
+          <tag line="45" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\NoPrefix" line="90" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="52">
+          <description>Constructor.</description>
+          <long-description>&lt;p&gt;Valid settings for NoPrefixPlugin are:
+- browsers - An array of browser shortcode/supported version pairs.
+- include - An array of CSS property names to include.
+- exclude - An array of CSS property names to exclude.
+- properties - An array of CSS property names/class names to manually be loaded.&lt;/p&gt;
+
+&lt;p&gt;browsers should be an associative array of browser shortcodes and the minimum browser
+version to support.&lt;/p&gt;
+
+&lt;p&gt;Supported browsers are (default version in parentheses):
+- Internet Explorer: ie(7)
+- Firefox: ff(15)
+- Chrome: chrome(22)
+- Opera: opera(12.1)
+- Opera Mini: omini(5.0)
+- Safari: safari(5.1)
+- Android: android(2.1)
+- Blackberry: bb(7.0)
+- iOS Safari: ios(3.2)&lt;/p&gt;
+
+&lt;p&gt;include and exclude both are a normal array of CSS property names.
+If include is provided, only those properties can be used (if available).
+If exclude is provided, all properties except those properties can be used (if available).
+If both include and exclude are provided, they are both essentially ignored as that makes no sense.
+By default, both are empty so all are available.&lt;/p&gt;
+
+&lt;p&gt;properties can be any CSS property (including non-standard ones). They should come in the
+form of an associative array with the CSS property being the key and the full class path the value.&lt;/p&gt;
+
+&lt;p&gt;Any manually loaded properties will override automatically loaded ones.&lt;/p&gt;
+
+&lt;p&gt;{@inheritdoc}&lt;/p&gt;</long-description>
+          <tag line="52" name="param" description="An array of settings that are defined elsewhere, usually a config file." type="array" variable="$settings">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="90">
+          <name>$settings</name>
+          <default/>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\NoPrefix" line="100" package="Default">
+        <name>registerCallbacks</name>
+        <full_name>registerCallbacks</full_name>
+        <docblock line="95">
+          <description>Registers a single PropertyCallback against all properties.</description>
+          <long-description>&lt;p&gt;{@inheritdoc}&lt;/p&gt;</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css\Plugin\NoPrefix" line="124" package="Default">
+        <name>processProperty</name>
+        <full_name>processProperty</full_name>
+        <docblock line="108">
+          <description>Processes the $element against the related NoPrefix\Property, if one is available.</description>
+          <long-description>&lt;p&gt;If the property isn't found in $properties, it will be attempted to autoload.&lt;/p&gt;
+
+&lt;p&gt;All autoloaded properties will be searched for within the NoPrefix\Property directory.&lt;/p&gt;
+
+&lt;p&gt;Manually loaded properties can be passed in via the settings for NoPrefix. Manually loaded
+properties may exist anywhere.&lt;/p&gt;
+
+&lt;p&gt;If a property is found, it's process() function is then called.&lt;/p&gt;</long-description>
+          <tag line="108" name="param" description="" type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="108" name="return" description="The processed $element." type="\Xazure\Css\Element\ElementInterface">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="108" name="throws" description="If a class property is found, but it doesn't implement PropertyInterface." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="124">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css\Plugin\NoPrefix" line="163" package="Default">
+        <name>loadSettings</name>
+        <full_name>loadSettings</full_name>
+        <docblock line="156">
+          <description>Loads the default settings.</description>
+          <long-description/>
+          <tag line="156" name="param" description="An array of key/value pairs for settings." type="array" variable="$settings">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="156" name="throws" description="" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+          <tag line="156" name="see" description="\Xazure\Css\Plugin\NoPrefix\NoPrefixPlugin::__construct()" refers="\Xazure\Css\Plugin\NoPrefix\NoPrefixPlugin::__construct()"/>
+        </docblock>
+        <argument line="163">
+          <name>$settings</name>
+          <default/>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css\Plugin\NoPrefix" line="227" package="Default">
+        <name>propertyToClassName</name>
+        <full_name>propertyToClassName</full_name>
+        <docblock line="221">
+          <description>Helper function to convert a property to what it's class name would be for autoloading.</description>
+          <long-description/>
+          <tag line="221" name="param" description="A CSS property name." type="string" variable="$property">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="221" name="return" description="The class name it would be." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="227">
+          <name>$property</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Generator.php" hash="1cfc91e257417da84c0e0bfc20203447" package="Default">
+    <docblock line="2">
+      <description>This file is part of the XazureCSS package.</description>
+      <long-description>&lt;p&gt;(c) Christian Snodgrass &lt;a href="&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m"&gt;&amp;#99;&amp;#x73;&amp;#x6e;&amp;#111;&amp;#x64;&amp;#x67;&amp;#114;&amp;#x61;&amp;#x73;&amp;#115;&amp;#x33;&amp;#49;&amp;#52;&amp;#x37;&amp;#43;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#46;&amp;#x63;&amp;#111;m&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="Xazure\Css" line="39" package="Default">
+      <extends/>
+      <name>Generator</name>
+      <full_name>\Xazure\Css\Generator</full_name>
+      <docblock line="24">
+        <description>XazureCSS is designed to provide easily pluggable custom CSS actions.</description>
+        <long-description>&lt;p&gt;Essentially XazureCSS does nothing on it's own, but provides a framework for
+just about any type of plugin to be built and run against CSS elements, which can
+then do nearly anything.&lt;/p&gt;
+
+&lt;p&gt;XazureCSS can have the following plugin types:
+- Output   - A plugin which is run to generate the final output.
+- Global   - A plugin which is run against the whole stack of CSS elements.
+- Block    - Against all CSS blocks.
+- Name     - Against the name of an AtRule, AtRuleBlock or Property.
+- Value    - Against the value of an AtRule, AtRuleBlock or Property.
+- Selector - Against the selectors of a Block.&lt;/p&gt;</long-description>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="46" namespace="Xazure\Css" package="Default">
+        <name>$settingsContainer</name>
+        <default/>
+        <docblock line="41">
+          <description>A container for all of our settings.</description>
+          <long-description/>
+          <tag line="41" name="var" description="" type="\Xazure\Css\Setting\SettingsContainer">
+            <type by_reference="false">\Xazure\Css\Setting\SettingsContainer</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="53" namespace="Xazure\Css" package="Default">
+        <name>$plugins</name>
+        <default/>
+        <docblock line="48">
+          <description>An array of all loaded Plugin objects.</description>
+          <long-description/>
+          <tag line="48" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="60" namespace="Xazure\Css" package="Default">
+        <name>$pluginCallbacks</name>
+        <default/>
+        <docblock line="55">
+          <description>An array of all registered Callbacks from the objects in $plugins.</description>
+          <long-description/>
+          <tag line="55" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css" line="72" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="62">
+          <description>Attempts to load the configuration file on construction.</description>
+          <long-description>&lt;p&gt;If $configFilePath is empty, it will attempt to load &lt;strong&gt;DIR&lt;/strong&gt; . '/settings.ini'.
+If $configFileType is empty, it will attempt to auto-detect the type based on extension, defaulting to ini type
+if that fails.&lt;/p&gt;</long-description>
+          <tag line="62" name="param" description="The config file to load." type="string" variable="$configFilePath">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="62" name="param" description="The config file type. Defaults to auto-detect." type="string" variable="$configFileType">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="72">
+          <name>$configFilePath</name>
+          <default>''</default>
+          <type/>
+        </argument>
+        <argument line="72">
+          <name>$configFileType</name>
+          <default>''</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css" line="88" package="Default">
+        <name>loadConfigFile</name>
+        <full_name>loadConfigFile</full_name>
+        <docblock line="82">
+          <description>Loads the given config file.</description>
+          <long-description/>
+          <tag line="82" name="param" description="" type="string" variable="$configFilePath">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="82" name="param" description="" type="string" variable="$configFileType">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="88">
+          <name>$configFilePath</name>
+          <default>''</default>
+          <type/>
+        </argument>
+        <argument line="88">
+          <name>$configFileType</name>
+          <default>''</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css" line="97" package="Default">
+        <name>loadPlugins</name>
+        <full_name>loadPlugins</full_name>
+        <docblock line="94">
+          <description>Loads the plugin classes from the plugins setting.</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css" line="121" package="Default">
+        <name>getSettingsContainer</name>
+        <full_name>getSettingsContainer</full_name>
+        <docblock line="116">
+          <description>Get SettingsContainer.</description>
+          <long-description/>
+          <tag line="116" name="return" description="" type="\Xazure\Css\Setting\SettingsContainer">
+            <type by_reference="false">\Xazure\Css\Setting\SettingsContainer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css" line="134" package="Default">
+        <name>setSettingsContainer</name>
+        <full_name>setSettingsContainer</full_name>
+        <docblock line="126">
+          <description>Set SettingsContainer.</description>
+          <long-description>&lt;p&gt;This allows you to replace the default SettingsContainer with a custom one, for dependency injection
+purposes.&lt;/p&gt;</long-description>
+          <tag line="126" name="param" description="" type="\Xazure\Css\Setting\SettingsContainer" variable="$container">
+            <type by_reference="false">\Xazure\Css\Setting\SettingsContainer</type>
+          </tag>
+        </docblock>
+        <argument line="134">
+          <name>$container</name>
+          <default/>
+          <type>\Xazure\Css\Setting\SettingsContainer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css" line="146" package="Default">
+        <name>buildStyleSheet</name>
+        <full_name>buildStyleSheet</full_name>
+        <docblock line="139">
+          <description>Builds the generated stylesheet from a stylesheet.</description>
+          <long-description/>
+          <tag line="139" name="param" description="The absolute path to the stylesheet to be processed." type="string" variable="$stylesheet_path">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="139" name="return" description="The generated CSS." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="139" name="throws" description="If the stylesheet file cannot be opened." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="146">
+          <name>$stylesheet_path</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Xazure\Css" line="164" package="Default">
+        <name>build</name>
+        <full_name>build</full_name>
+        <docblock line="157">
+          <description>Builds the generated stylesheet from source.</description>
+          <long-description/>
+          <tag line="157" name="param" description="The stylesheet source to process." type="string" variable="$source">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="157" name="return" description="The generated CSS." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="157" name="throws" description="If an output plugin is specified, but it contains more than one or less than one OutputCallback." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="164">
+          <name>$source</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css" line="204" package="Default">
+        <name>loadPlugin</name>
+        <full_name>loadPlugin</full_name>
+        <docblock line="196">
+          <description>Does the heavy lifting to load a single plugin.</description>
+          <long-description/>
+          <tag line="196" name="param" description="The name of the plugin." type="string" variable="$pluginName">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="196" name="param" description="The pluginData array from settings, which should contain at least class." type="array" variable="$pluginData">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="196" name="return" description="" type="\Xazure\Css\Plugin\PluginInterface">
+            <type by_reference="false">\Xazure\Css\Plugin\PluginInterface</type>
+          </tag>
+          <tag line="196" name="throws" description="If class isn't in pluginData, the class couldn't be found, or the class isn't an instance of PluginInterface." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="204">
+          <name>$pluginName</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="204">
+          <name>$pluginData</name>
+          <default/>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css" line="231" package="Default">
+        <name>stripComments</name>
+        <full_name>stripComments</full_name>
+        <docblock line="225">
+          <description>Strips all CSS comments from the given source.</description>
+          <long-description/>
+          <tag line="225" name="param" description="The stylesheet source." type="string" variable="$source">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="225" name="return" description="The stylesheet source with comments stripped." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="231">
+          <name>$source</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css" line="243" package="Default">
+        <name>processElements</name>
+        <full_name>processElements</full_name>
+        <docblock line="236">
+          <description>Given the stylesheet source, builds it into ElementInterfaces.</description>
+          <long-description/>
+          <tag line="236" name="param" description="The stylesheet source." type="\Xazure\Css\" variable="$source"/>
+          <tag line="236" name="return" description="" type="\Xazure\Css\Element\ElementGroup">
+            <type by_reference="false">\Xazure\Css\Element\ElementGroup</type>
+          </tag>
+          <tag line="236" name="throws" description="If a } is found with no block open for it to pair against, or not all { are paired with a {." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="243">
+          <name>$source</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css" line="305" package="Default">
+        <name>processElementLine</name>
+        <full_name>processElementLine</full_name>
+        <docblock line="298">
+          <description>Given a line of source, creates either an AtRule or Property.</description>
+          <long-description/>
+          <tag line="298" name="param" description="The line to get element from." type="string" variable="$lineSource">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="298" name="return" description="The AtRule or Property we generate." type="\Xazure\Css\Element\AtRule|\Xazure\Css\Element\Property">
+            <type by_reference="false">\Xazure\Css\Element\AtRule</type>
+            <type by_reference="false">\Xazure\Css\Element\Property</type>
+          </tag>
+          <tag line="298" name="throws" description="If it doesn't match the at-rule or property pattern." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="305">
+          <name>$lineSource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css" line="323" package="Default">
+        <name>processElementBlock</name>
+        <full_name>processElementBlock</full_name>
+        <docblock line="317">
+          <description>Given a line of source, creates either an AtRuleBlock or Block.</description>
+          <long-description/>
+          <tag line="317" name="param" description="The line to start the block from." type="string" variable="$lineSource">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="317" name="return" description="The AtRuleBlock or Bloick we generate." type="\Xazure\Css\Element\AtRuleBlock|\Xazure\Css\Element\Block">
+            <type by_reference="false">\Xazure\Css\Element\AtRuleBlock</type>
+            <type by_reference="false">\Xazure\Css\Element\Block</type>
+          </tag>
+        </docblock>
+        <argument line="323">
+          <name>$lineSource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css" line="346" package="Default">
+        <name>applyPlugins</name>
+        <full_name>applyPlugins</full_name>
+        <docblock line="333">
+          <description>Applies all of the plugins to their respective elements.</description>
+          <long-description>&lt;p&gt;For each plugin callback, we will make one pass and apply it to any relevant
+elements.&lt;/p&gt;
+
+&lt;p&gt;While it is possible that a plugin will be applied to a generated plugin,
+generally plugins should not rely on this as the order of the plugin loading
+dictates how this will work.&lt;/p&gt;</long-description>
+          <tag line="333" name="param" description="The root ElementGroup." type="\Xazure\Css\Element\ElementGroup" variable="$root">
+            <type by_reference="false">\Xazure\Css\Element\ElementGroup</type>
+          </tag>
+          <tag line="333" name="return" description="The root element, with plugins applied." type="\Xazure\Css\Element\ElementGroup">
+            <type by_reference="false">\Xazure\Css\Element\ElementGroup</type>
+          </tag>
+        </docblock>
+        <argument line="346">
+          <name>$root</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementGroup</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Xazure\Css" line="369" package="Default">
+        <name>applyPluginRecurse</name>
+        <full_name>applyPluginRecurse</full_name>
+        <docblock line="360">
+          <description>This function does the heavy lifting.</description>
+          <long-description>&lt;p&gt;It traverses all of the elements children and
+attempts to apply the supplied plugin.&lt;/p&gt;</long-description>
+          <tag line="360" name="param" description="The element to apply the plugin to." type="\Xazure\Css\Element\ElementInterface" variable="$element">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+          <tag line="360" name="param" description="" type="\Xazure\Css\Plugin\Callback\Callback" variable="$callback">
+            <type by_reference="false">\Xazure\Css\Plugin\Callback\Callback</type>
+          </tag>
+          <tag line="360" name="throws" description="If the plugin callback does not return an instance of ElementInterface." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+          <tag line="360" name="return" description="The processed element." type="\Xazure\Css\Element\ElementInterface">
+            <type by_reference="false">\Xazure\Css\Element\ElementInterface</type>
+          </tag>
+        </docblock>
+        <argument line="369">
+          <name>$element</name>
+          <default/>
+          <type>\Xazure\Css\Element\ElementInterface</type>
+        </argument>
+        <argument line="369">
+          <name>$callback</name>
+          <default/>
+          <type>\Xazure\Css\Plugin\Callback\Callback</type>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <namespace name="Xazure" full_name="Xazure">
+    <namespace name="Css" full_name="Xazure\Css">
+      <namespace name="Element" full_name="Xazure\Css\Element"/>
+      <namespace name="Plugin" full_name="Xazure\Css\Plugin">
+        <namespace name="Callback" full_name="Xazure\Css\Plugin\Callback"/>
+        <namespace name="NoPrefix" full_name="Xazure\Css\Plugin\NoPrefix">
+          <namespace name="Property" full_name="Xazure\Css\Plugin\NoPrefix\Property"/>
+        </namespace>
+      </namespace>
+      <namespace name="Setting" full_name="Xazure\Css\Setting"/>
+    </namespace>
+    <namespace name="Plugin" full_name="Xazure\Plugin">
+      <namespace name="NoPrefix" full_name="Xazure\Plugin\NoPrefix">
+        <namespace name="Property" full_name="Xazure\Plugin\NoPrefix\Property"/>
+      </namespace>
+    </namespace>
+  </namespace>
+  <marker count="2">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>

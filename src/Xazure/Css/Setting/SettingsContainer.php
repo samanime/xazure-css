@@ -1,11 +1,31 @@
 <?php
+/**
+ * This file is part of the XazureCSS package.
+ *
+ * (c) Christian Snodgrass <csnodgrass3147+github@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace Xazure\Css\Setting;
 
+/**
+ * Provides a container for all settings as well as handles logic to load configuration files.
+ */
 class SettingsContainer
 {
+    /**
+     * string key/mixed value pairs.
+     *
+     * @var array
+     */
     protected $settings;
 
     /**
+     * Constructor.
+     *
+     * Loads the config file if one is provided.
+     *
      * @param string $configFilePath The absolute file path to a config file. If specified, it will attempt to load.
      * @param string $configFileType The type of config file, if empty it will auto-detect.
      */
@@ -19,6 +39,8 @@ class SettingsContainer
     }
 
     /**
+     * Indicates if there is a setting specified by the given key.
+     *
      * @param string $key
      * @return bool Indicates if the given key has a stored setting.
      */
@@ -75,7 +97,7 @@ class SettingsContainer
     /**
      * Loads the specified configuration file.
      *
-     * If $configFile is empty, it will attempt to load __DIR__ . '/settings.ini'.
+     * If $configFilePath is empty, it will attempt to load __DIR__ . '/settings.ini'.
      * If $configFileType is empty, it will attempt to auto-detect the type based on extension, defaulting to ini type
      * if it fails to auto-detect.
      *
@@ -84,8 +106,9 @@ class SettingsContainer
      * - yml/yaml - A YAML-style configuration.
      * - xml - An XML style configuration.
      *
-     * @param string $configFile The absolute path to the config file to load.
+     * @param string $configFilePath The absolute path to the config file to load.
      * @param string $configFileType The config file type. Defaults to auto-detect.
+     * @throws \Exception If $configFileType isn't a usable type.
      */
     public function loadConfigFile($configFilePath, $configFileType = '')
     {
@@ -126,6 +149,12 @@ class SettingsContainer
         return strtolower($matches[1]);
     }
 
+    /**
+     * Parses the given Yaml file and stores the resulting data in $this->settings.
+     *
+     * @param string $configFilePath Absolute path to config file.
+     * @throws \Exception If the file fails to load or yaml_parse_file is unavailable.
+     */
     protected function loadYamlConfigFile($configFilePath)
     {
         if (!function_exists('yaml_parse_file')) {
@@ -141,13 +170,32 @@ class SettingsContainer
         $this->settings = $settings;
     }
 
+    /**
+     * Parses the given XML file and stores the resulting data in $this->settings.
+     *
+     * @param string $configFilePath Absolute path to config file.
+     * @throws \Exception Always, since it isn't implemented.
+     * @todo Implement this when someone requests it or someone is really bored.
+     */
     protected function loadXmlConfigFile($configFilePath)
     {
-
+        throw new \Exception('XML Configuration files are not implemented yet. Will be implemented when first requested. ;)');
     }
 
+    /**
+     * Parses the given INI file and stores the resulting data in $this->settings.
+     *
+     * @param string $configFilePath Absolute path to config file.
+     * @throws \Exception If the file fails to load.
+     */
     protected function loadIniConfigFile($configFilePath)
     {
+        $settings = parse_ini_file($configFilePath, true);
 
+        if ($settings === false) {
+            throw new \Exception('Unable to parse INI config file: ' . $configFilePath);
+        }
+
+        $this->settings = $settings;
     }
 }

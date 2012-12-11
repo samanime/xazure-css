@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of the XazureCSS package.
+ *
+ * (c) Christian Snodgrass <csnodgrass3147+github@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace Xazure\Css;
 
 use Xazure\Css\Element\AtRule;
@@ -11,39 +19,60 @@ use Xazure\Css\Plugin\PluginInterface;
 use Xazure\Css\Element\ElementInterface;
 use Xazure\Css\Plugin\Callback\Callback;
 use Xazure\Css\Plugin\Callback\OutputCallback;
+use Xazure\Css\Plugin\Callback\GlobalCallback;
 
 /**
  * XazureCSS is designed to provide easily pluggable custom CSS actions.
  *
+ * Essentially XazureCSS does nothing on it's own, but provides a framework for
+ * just about any type of plugin to be built and run against CSS elements, which can
+ * then do nearly anything.
+ *
  * XazureCSS can have the following plugin types:
- * - Overall: Given the entire stack of elements, it may do something.
- * - Custom property: Any property can be matched, existing or otherwise.
- * - Custom values: Any value can be matched, existing or otherwise.
- * - Custom selector: Any select which begins with & can be matched.
- * - Custom at-rule: Any at-rule can be matched, existing or otherwise.
+ * - Output   - A plugin which is run to generate the final output.
+ * - Global   - A plugin which is run against the whole stack of CSS elements.
+ * - Block    - Against all CSS blocks.
+ * - Name     - Against the name of an AtRule, AtRuleBlock or Property.
+ * - Value    - Against the value of an AtRule, AtRuleBlock or Property.
+ * - Selector - Against the selectors of a Block.
  */
 class Generator
 {
+    /**
+     * A container for all of our settings.
+     *
+     * @var Setting\SettingsContainer
+     */
     protected $settingsContainer;
+
+    /**
+     * An array of all loaded Plugin objects.
+     *
+     * @var array
+     */
     protected $plugins;
+
+    /**
+     * An array of all registered Callbacks from the objects in $plugins.
+     *
+     * @var array
+     */
     protected $pluginCallbacks;
 
     /**
      * Attempts to load the configuration file on construction.
      *
-     * If $configFile is empty, it will attempt to load __DIR__ . '/settings.ini'.
+     * If $configFilePath is empty, it will attempt to load __DIR__ . '/settings.ini'.
      * If $configFileType is empty, it will attempt to auto-detect the type based on extension, defaulting to ini type
      * if that fails.
      *
-     * @param string $configFile The config file to load.
+     * @param string $configFilePath The config file to load.
      * @param string $configFileType The config file type. Defaults to auto-detect.
      */
     public function __construct($configFilePath = '', $configFileType = '')
     {
         $this->plugins = array();
         $this->settingsContainer = new SettingsContainer();
-
-        $this->loadDefaultSettings();
 
         if (!empty($configFilePath)) {
             $this->loadConfigFile($configFilePath, $configFileType);
@@ -62,6 +91,9 @@ class Generator
         $this->loadPlugins();
     }
 
+    /**
+     * Loads the plugin classes from the plugins setting.
+     */
     public function loadPlugins()
     {
         // Clear the plugins array.
@@ -82,6 +114,8 @@ class Generator
     }
 
     /**
+     * Get SettingsContainer.
+     *
      * @return SettingsContainer
      */
     public function getSettingsContainer()
@@ -90,6 +124,8 @@ class Generator
     }
 
     /**
+     * Set SettingsContainer.
+     *
      * This allows you to replace the default SettingsContainer with a custom one, for dependency injection
      * purposes.
      *
@@ -123,6 +159,7 @@ class Generator
      *
      * @param string $source The stylesheet source to process.
      * @return string The generated CSS.
+     * @throws \Exception If an output plugin is specified, but it contains more than one or less than one OutputCallback.
      */
     public function build($source)
     {
@@ -156,6 +193,14 @@ class Generator
         return $root->__toString();
     }
 
+    /**
+     * Does the heavy lifting to load a single plugin.
+     *
+     * @param string $pluginName The name of the plugin.
+     * @param array $pluginData The pluginData array from settings, which should contain at least class.
+     * @return Plugin\PluginInterface
+     * @throws \Exception If class isn't in pluginData, the class couldn't be found, or the class isn't an instance of PluginInterface.
+     */
     protected function loadPlugin($pluginName, array $pluginData)
     {
         if (!isset($pluginData['class'])) {
@@ -178,14 +223,6 @@ class Generator
     }
 
     /**
-     * Loads the default settings.
-     */
-    protected function loadDefaultSettings()
-    {
-
-    }
-
-    /**
      * Strips all CSS comments from the given source.
      *
      * @param string $source The stylesheet source.
@@ -201,6 +238,7 @@ class Generator
      *
      * @param $source The stylesheet source.
      * @return ElementGroup
+     * @throws \Exception If a } is found with no block open for it to pair against, or not all { are paired with a {.
      */
     protected function processElements($source)
     {
@@ -303,12 +341,17 @@ class Generator
      * dictates how this will work.
      *
      * @param ElementGroup $root The root ElementGroup.
-     * @param array $pluginTable An array of plugins and the elements they've been run on, to prevent infinite loops.
+     * @return \Xazure\Css\Element\ElementGroup The root element, with plugins applied.
      */
     protected function applyPlugins(ElementGroup $root)
     {
         foreach ($this->pluginCallbacks as $callback) {
-            $root = $this->applyPluginRecurse($root, $callback);
+            // The GlobalCallback should only be called against $root itself.
+            if ($callback instanceof GlobalCallback) {
+                $callback->run($root);
+            } else if (!($callback instanceof OutputCallback)) { // also make sure we don't run any OutputCallbacks.
+                $root = $this->applyPluginRecurse($root, $callback);
+            }
         }
 
         return $root;
@@ -318,9 +361,10 @@ class Generator
      * This function does the heavy lifting. It traverses all of the elements children and
      * attempts to apply the supplied plugin.
      *
-     * @param string $pluginName The name of the plugin.
-     * @param PluginInterface $plugin The plugin itself.
-     * @param Element\ElementGroup $element The element to apply the plugin to.
+     * @param \Xazure\Css\Element\ElementInterface $element The element to apply the plugin to.
+     * @param Plugin\Callback\Callback $callback
+     * @throws \Exception If the plugin callback does not return an instance of ElementInterface.
+     * @return \Xazure\Css\Element\ElementInterface The processed element.
      */
     protected function applyPluginRecurse(ElementInterface $element, Callback $callback)
     {

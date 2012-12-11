@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Xazure\Css\Plugin\Callback\NameCallback</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Xazure.html"><i class="icon-th"></i> Xazure</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">0</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
+<li class="method public inherited"><a href="#method___toString" title="__toString :: Gives the callback as a string for easy printing."><span class="description">Gives the callback as a string for easy printing.</span><pre>__toString()</pre></a></li>
+<li class="method public inherited"><a href="#method_getCallback" title="getCallback :: Get the callback."><span class="description">Get the callback.</span><pre>getCallback()</pre></a></li>
+<li class="method public inherited"><a href="#method_getElementClass" title="getElementClass :: Get the element class string."><span class="description">Get the element class string.</span><pre>getElementClass()</pre></a></li>
+<li class="method public "><a href="#method_isMatch" title="isMatch :: Compares $element against a set of criteria."><span class="description">Compares $element against a set of criteria.</span><pre>isMatch()</pre></a></li>
+<li class="method public inherited"><a href="#method_run" title="run :: Given an Element, it should run the callback against it and
+return the results of the Callback."><span class="description">Given an Element, it should run the callback against it and
+return the results of the Callback.</span><pre>run()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul><li class="method protected inherited"><a href="#method_callbackToString" title="callbackToString :: Converts a callback to a string."><span class="description">Converts a callback to a string.</span><pre>callbackToString()</pre></a></li></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected inherited"><a href="#property_callback" title="$callback :: The callback function to call."><span class="description"></span><pre>$callback</pre></a></li>
+<li class="property protected inherited"><a href="#property_elementClass" title="$elementClass :: The element class the callback targets."><span class="description"></span><pre>$elementClass</pre></a></li>
+<li class="property protected "><a href="#property_isRegex" title="$isRegex :: Indicates if we should treat name as a PCRE pattern."><span class="description"></span><pre>$isRegex</pre></a></li>
+<li class="property protected "><a href="#property_name" title="$name :: The name to compare against."><span class="description"></span><pre>$name</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Xazure\Css\Plugin\Callback\NameCallback"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Xazure.html">Xazure</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Xazure.Css.html">Css</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Xazure.Css.Plugin.html">Plugin</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Xazure.Css.Plugin.Callback.html">Callback</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Xazure.Css.Plugin.Callback.NameCallback.html">NameCallback</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">A callback which targets elements based on their name that implement
+the NameInterface.</p>
+<div class="details">
+<div class="long_description"><p>This is an abstract class, so it can not be used directly.</p></div>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Constructor.</h2>
+<pre>__construct(string $name, string $elementClass, callable $callback, bool $isRegex) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If $isRegex, $name should be a value PCRE string.
+It will then be evaluated against the elements name for testing.</p>
+
+<p>If $isRegex is false, $name should be a string literal which is compared to the element.</p>
+
+<p>If $name is empty, an element with any name can pass that criteria.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>The name to compare against, either a PCRE pattern or a string literal.</p></div>
+<div class="subelement argument">
+<h4>$elementClass</h4>
+<code>string</code><p>The full class which the element should be compared against.</p></div>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>callable</code><p>The callback function to run.</p></div>
+<div class="subelement argument">
+<h4>$isRegex</h4>
+<code>bool</code><p>If $name should be treated as regex or not.</p>
+</div>
+</div></div>
+</div>
+<a id="method___toString"></a><div class="element clickable method public method___toString" data-toggle="collapse" data-target=".method___toString .collapse">
+<h2>Gives the callback as a string for easy printing.</h2>
+<pre>__toString() : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Xazure\Css\Plugin\Callback\Callback::__toString()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getCallback"></a><div class="element clickable method public method_getCallback" data-toggle="collapse" data-target=".method_getCallback .collapse">
+<h2>Get the callback.</h2>
+<pre>getCallback() : callable</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Xazure\Css\Plugin\Callback\Callback::getCallback()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>callable</code></div>
+</div></div>
+</div>
+<a id="method_getElementClass"></a><div class="element clickable method public method_getElementClass" data-toggle="collapse" data-target=".method_getElementClass .collapse">
+<h2>Get the element class string.</h2>
+<pre>getElementClass() : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Xazure\Css\Plugin\Callback\Callback::getElementClass()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_isMatch"></a><div class="element clickable method public method_isMatch" data-toggle="collapse" data-target=".method_isMatch .collapse">
+<h2>Compares $element against a set of criteria.</h2>
+<pre>isMatch(\Xazure\Css\Element\ElementInterface $element) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>To return true, $element must:
+- Be an instance of the class give specified by $elementClass in the constructor.
+- Be an instance of NameInterface.
+- $isRegex must be true and the element's name must preg_match() $name from the constructor OR
+- $isRegex must be false and the element's name must be equal to $name from the constructor OR
+- The $name supplied to the constructor is empty.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$element</h4>
+<code><a href="../classes/Xazure.Css.Element.ElementInterface.html">\Xazure\Css\Element\ElementInterface</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>Indicates if $element met the criteria.</div>
+</div></div>
+</div>
+<a id="method_run"></a><div class="element clickable method public method_run" data-toggle="collapse" data-target=".method_run .collapse">
+<h2>Given an Element, it should run the callback against it and
+return the results of the Callback.</h2>
+<pre>run(\Xazure\Css\Element\ElementInterface $element) : <a href="../classes/Xazure.Css.Element.ElementInterface.html">\Xazure\Css\Element\ElementInterface</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The callback should return an ElementInterface.</p>
+
+<p>If more than one Element needs to be returned, return them in an ElementGroup.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Xazure\Css\Plugin\Callback\Callback::run()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$element</h4>
+<code><a href="../classes/Xazure.Css.Element.ElementInterface.html">\Xazure\Css\Element\ElementInterface</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Xazure.Css.Element.ElementInterface.html">\Xazure\Css\Element\ElementInterface</a></code></div>
+</div></div>
+</div>
+<a id="method_callbackToString"></a><div class="element clickable method protected method_callbackToString" data-toggle="collapse" data-target=".method_callbackToString .collapse">
+<h2>Converts a callback to a string.</h2>
+<pre>callbackToString(callable $callback) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Xazure\Css\Plugin\Callback\Callback::callbackToString()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>callable</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_callback"> </a><div class="element clickable property protected property_callback" data-toggle="collapse" data-target=".property_callback .collapse">
+<h2></h2>
+<pre>$callback : callable</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Xazure\Css\Plugin\Callback\Callback::$$callback</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_elementClass"> </a><div class="element clickable property protected property_elementClass" data-toggle="collapse" data-target=".property_elementClass .collapse">
+<h2></h2>
+<pre>$elementClass : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Xazure\Css\Plugin\Callback\Callback::$$elementClass</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_isRegex"> </a><div class="element clickable property protected property_isRegex" data-toggle="collapse" data-target=".property_isRegex .collapse">
+<h2></h2>
+<pre>$isRegex : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_name"> </a><div class="element clickable property protected property_name" data-toggle="collapse" data-target=".property_name .collapse">
+<h2></h2>
+<pre>$name : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2012-12-11T00:02:19-08:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Xazure\Css\Plugin\NoPrefix\NoPrefixPlugin</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Xazure.html"><i class="icon-th"></i> Xazure</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">0</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_processProperty" title="processProperty :: Processes the $element against the related NoPrefix\Property, if one is available."><span class="description">Processes the $element against the related NoPrefix\Property, if one is available.</span><pre>processProperty()</pre></a></li>
+<li class="method public "><a href="#method_registerCallbacks" title="registerCallbacks :: Registers a single PropertyCallback against all properties."><span class="description">Registers a single PropertyCallback against all properties.</span><pre>registerCallbacks()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected "><a href="#method_loadSettings" title="loadSettings :: Loads the default settings."><span class="description">Loads the default settings.</span><pre>loadSettings()</pre></a></li>
+<li class="method protected "><a href="#method_propertyToClassName" title="propertyToClassName :: Helper function to convert a property to what it's class name would be for autoloading."><span class="description">Helper function to convert a property to what it's class name would be for autoloading.</span><pre>propertyToClassName()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property_browsers" title="$browsers :: An array of supported browsers, in the form of
+browser shortcode/supported version pairs."><span class="description"></span><pre>$browsers</pre></a></li>
+<li class="property protected "><a href="#property_exclude" title="$exclude :: An array of CSS property names to exclude."><span class="description"></span><pre>$exclude</pre></a></li>
+<li class="property protected "><a href="#property_include" title="$include :: An array of CSS property names to include."><span class="description"></span><pre>$include</pre></a></li>
+<li class="property protected "><a href="#property_properties" title="$properties :: An array of registered properties."><span class="description"></span><pre>$properties</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Xazure\Css\Plugin\NoPrefix\NoPrefixPlugin"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Xazure.html">Xazure</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Xazure.Css.html">Css</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Xazure.Css.Plugin.html">Plugin</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Xazure.Css.Plugin.NoPrefix.html">NoPrefix</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Xazure.Css.Plugin.NoPrefix.NoPrefixPlugin.html">NoPrefixPlugin</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">NoPrefixPlugin implements functionality which will automatically add
+prefixed versions of non-prefixed properties as needed.</p>
+<div class="details">
+<div class="long_description"></div>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Constructor.</h2>
+<pre>__construct(array $settings) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Valid settings for NoPrefixPlugin are:
+- browsers - An array of browser shortcode/supported version pairs.
+- include - An array of CSS property names to include.
+- exclude - An array of CSS property names to exclude.
+- properties - An array of CSS property names/class names to manually be loaded.</p>
+
+<p>browsers should be an associative array of browser shortcodes and the minimum browser
+version to support.</p>
+
+<p>Supported browsers are (default version in parentheses):
+- Internet Explorer: ie(7)
+- Firefox: ff(15)
+- Chrome: chrome(22)
+- Opera: opera(12.1)
+- Opera Mini: omini(5.0)
+- Safari: safari(5.1)
+- Android: android(2.1)
+- Blackberry: bb(7.0)
+- iOS Safari: ios(3.2)</p>
+
+<p>include and exclude both are a normal array of CSS property names.
+If include is provided, only those properties can be used (if available).
+If exclude is provided, all properties except those properties can be used (if available).
+If both include and exclude are provided, they are both essentially ignored as that makes no sense.
+By default, both are empty so all are available.</p>
+
+<p>properties can be any CSS property (including non-standard ones). They should come in the
+form of an associative array with the CSS property being the key and the full class path the value.</p>
+
+<p>Any manually loaded properties will override automatically loaded ones.</p>
+
+<p></p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$settings</h4>
+<code>array</code><p>An array of settings that are defined elsewhere, usually a config file.</p></div>
+</div></div>
+</div>
+<a id="method_processProperty"></a><div class="element clickable method public method_processProperty" data-toggle="collapse" data-target=".method_processProperty .collapse">
+<h2>Processes the $element against the related NoPrefix\Property, if one is available.</h2>
+<pre>processProperty(\Xazure\Css\Element\ElementInterface $element) : <a href="../classes/Xazure.Css.Element.ElementInterface.html">\Xazure\Css\Element\ElementInterface</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If the property isn't found in $properties, it will be attempted to autoload.</p>
+
+<p>All autoloaded properties will be searched for within the NoPrefix\Property directory.</p>
+
+<p>Manually loaded properties can be passed in via the settings for NoPrefix. Manually loaded
+properties may exist anywhere.</p>
+
+<p>If a property is found, it's process() function is then called.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$element</h4>
+<code><a href="../classes/Xazure.Css.Element.ElementInterface.html">\Xazure\Css\Element\ElementInterface</a></code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td>If a class property is found, but it doesn't implement PropertyInterface.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Xazure.Css.Element.ElementInterface.html">\Xazure\Css\Element\ElementInterface</a></code>The processed $element.</div>
+</div></div>
+</div>
+<a id="method_registerCallbacks"></a><div class="element clickable method public method_registerCallbacks" data-toggle="collapse" data-target=".method_registerCallbacks .collapse">
+<h2>Registers a single PropertyCallback against all properties.</h2>
+<pre>registerCallbacks() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p><p>Any non-abstract instance of Callback can be registered. Which instance you use
+dictates what it will match. For example, the PropertyValueCallback can only match
+ElementInterfaces of Property.</p>
+
+<p>All objects returns in this array must be an instance of Callback.</p></p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>An array of Callback\Callbacks.</div>
+</div></div>
+</div>
+<a id="method_loadSettings"></a><div class="element clickable method protected method_loadSettings" data-toggle="collapse" data-target=".method_loadSettings .collapse">
+<h2>Loads the default settings.</h2>
+<pre>loadSettings(array $settings) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td><a href="Plugin.NoPrefix.NoPrefixPlugin.html#%5CXazure%5CCss%5CPlugin%5CNoPrefix%5CNoPrefixPlugin::__construct()">\Xazure\Css\Plugin\NoPrefix\NoPrefixPlugin::__construct()</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$settings</h4>
+<code>array</code><p>An array of key/value pairs for settings.</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td></td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_propertyToClassName"></a><div class="element clickable method protected method_propertyToClassName" data-toggle="collapse" data-target=".method_propertyToClassName .collapse">
+<h2>Helper function to convert a property to what it's class name would be for autoloading.</h2>
+<pre>propertyToClassName(string $property) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$property</h4>
+<code>string</code><p>A CSS property name.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The class name it would be.</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_browsers"> </a><div class="element clickable property protected property_browsers" data-toggle="collapse" data-target=".property_browsers .collapse">
+<h2></h2>
+<pre>$browsers : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_exclude"> </a><div class="element clickable property protected property_exclude" data-toggle="collapse" data-target=".property_exclude .collapse">
+<h2></h2>
+<pre>$exclude : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_include"> </a><div class="element clickable property protected property_include" data-toggle="collapse" data-target=".property_include .collapse">
+<h2></h2>
+<pre>$include : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_properties"> </a><div class="element clickable property protected property_properties" data-toggle="collapse" data-target=".property_properties .collapse">
+<h2></h2>
+<pre>$properties : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2012-12-11T00:02:19-08:00.<br></footer></div>
+</div>
+</body>
+</html>

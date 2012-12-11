@@ -1,0 +1,393 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Xazure\Css\Generator</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Xazure.html"><i class="icon-th"></i> Xazure</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">0</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Attempts to load the configuration file on construction."><span class="description">Attempts to load the configuration file on construction.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_build" title="build :: Builds the generated stylesheet from source."><span class="description">Builds the generated stylesheet from source.</span><pre>build()</pre></a></li>
+<li class="method public "><a href="#method_buildStyleSheet" title="buildStyleSheet :: Builds the generated stylesheet from a stylesheet."><span class="description">Builds the generated stylesheet from a stylesheet.</span><pre>buildStyleSheet()</pre></a></li>
+<li class="method public "><a href="#method_getSettingsContainer" title="getSettingsContainer :: Get SettingsContainer."><span class="description">Get SettingsContainer.</span><pre>getSettingsContainer()</pre></a></li>
+<li class="method public "><a href="#method_loadConfigFile" title="loadConfigFile :: Loads the given config file."><span class="description">Loads the given config file.</span><pre>loadConfigFile()</pre></a></li>
+<li class="method public "><a href="#method_loadPlugins" title="loadPlugins :: Loads the plugin classes from the plugins setting."><span class="description">Loads the plugin classes from the plugins setting.</span><pre>loadPlugins()</pre></a></li>
+<li class="method public "><a href="#method_setSettingsContainer" title="setSettingsContainer :: Set SettingsContainer."><span class="description">Set SettingsContainer.</span><pre>setSettingsContainer()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected "><a href="#method_applyPluginRecurse" title="applyPluginRecurse :: This function does the heavy lifting."><span class="description">This function does the heavy lifting.</span><pre>applyPluginRecurse()</pre></a></li>
+<li class="method protected "><a href="#method_applyPlugins" title="applyPlugins :: Applies all of the plugins to their respective elements."><span class="description">Applies all of the plugins to their respective elements.</span><pre>applyPlugins()</pre></a></li>
+<li class="method protected "><a href="#method_loadPlugin" title="loadPlugin :: Does the heavy lifting to load a single plugin."><span class="description">Does the heavy lifting to load a single plugin.</span><pre>loadPlugin()</pre></a></li>
+<li class="method protected "><a href="#method_processElementBlock" title="processElementBlock :: Given a line of source, creates either an AtRuleBlock or Block."><span class="description">Given a line of source, creates either an AtRuleBlock or Block.</span><pre>processElementBlock()</pre></a></li>
+<li class="method protected "><a href="#method_processElementLine" title="processElementLine :: Given a line of source, creates either an AtRule or Property."><span class="description">Given a line of source, creates either an AtRule or Property.</span><pre>processElementLine()</pre></a></li>
+<li class="method protected "><a href="#method_processElements" title="processElements :: Given the stylesheet source, builds it into ElementInterfaces."><span class="description">Given the stylesheet source, builds it into ElementInterfaces.</span><pre>processElements()</pre></a></li>
+<li class="method protected "><a href="#method_stripComments" title="stripComments :: Strips all CSS comments from the given source."><span class="description">Strips all CSS comments from the given source.</span><pre>stripComments()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property_pluginCallbacks" title="$pluginCallbacks :: An array of all registered Callbacks from the objects in $plugins."><span class="description"></span><pre>$pluginCallbacks</pre></a></li>
+<li class="property protected "><a href="#property_plugins" title="$plugins :: An array of all loaded Plugin objects."><span class="description"></span><pre>$plugins</pre></a></li>
+<li class="property protected "><a href="#property_settingsContainer" title="$settingsContainer :: A container for all of our settings."><span class="description"></span><pre>$settingsContainer</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Xazure\Css\Generator"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Xazure.html">Xazure</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Xazure.Css.html">Css</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Xazure.Css.Generator.html">Generator</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">XazureCSS is designed to provide easily pluggable custom CSS actions.</p>
+<div class="details">
+<div class="long_description"><p>Essentially XazureCSS does nothing on it's own, but provides a framework for
+just about any type of plugin to be built and run against CSS elements, which can
+then do nearly anything.</p>
+
+<p>XazureCSS can have the following plugin types:
+- Output   - A plugin which is run to generate the final output.
+- Global   - A plugin which is run against the whole stack of CSS elements.
+- Block    - Against all CSS blocks.
+- Name     - Against the name of an AtRule, AtRuleBlock or Property.
+- Value    - Against the value of an AtRule, AtRuleBlock or Property.
+- Selector - Against the selectors of a Block.</p></div>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Attempts to load the configuration file on construction.</h2>
+<pre>__construct(string $configFilePath, string $configFileType) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If $configFilePath is empty, it will attempt to load <strong>DIR</strong> . '/settings.ini'.
+If $configFileType is empty, it will attempt to auto-detect the type based on extension, defaulting to ini type
+if that fails.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$configFilePath</h4>
+<code>string</code><p>The config file to load.</p></div>
+<div class="subelement argument">
+<h4>$configFileType</h4>
+<code>string</code><p>The config file type. Defaults to auto-detect.</p>
+</div>
+</div></div>
+</div>
+<a id="method_build"></a><div class="element clickable method public method_build" data-toggle="collapse" data-target=".method_build .collapse">
+<h2>Builds the generated stylesheet from source.</h2>
+<pre>build(string $source) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$source</h4>
+<code>string</code><p>The stylesheet source to process.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td>If an output plugin is specified, but it contains more than one or less than one OutputCallback.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The generated CSS.</div>
+</div></div>
+</div>
+<a id="method_buildStyleSheet"></a><div class="element clickable method public method_buildStyleSheet" data-toggle="collapse" data-target=".method_buildStyleSheet .collapse">
+<h2>Builds the generated stylesheet from a stylesheet.</h2>
+<pre>buildStyleSheet(string $stylesheet_path) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$stylesheet_path</h4>
+<code>string</code><p>The absolute path to the stylesheet to be processed.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td>If the stylesheet file cannot be opened.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The generated CSS.</div>
+</div></div>
+</div>
+<a id="method_getSettingsContainer"></a><div class="element clickable method public method_getSettingsContainer" data-toggle="collapse" data-target=".method_getSettingsContainer .collapse">
+<h2>Get SettingsContainer.</h2>
+<pre>getSettingsContainer() : <a href="../classes/Xazure.Css.Setting.SettingsContainer.html">\Xazure\Css\Setting\SettingsContainer</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Xazure.Css.Setting.SettingsContainer.html">\Xazure\Css\Setting\SettingsContainer</a></code></div>
+</div></div>
+</div>
+<a id="method_loadConfigFile"></a><div class="element clickable method public method_loadConfigFile" data-toggle="collapse" data-target=".method_loadConfigFile .collapse">
+<h2>Loads the given config file.</h2>
+<pre>loadConfigFile(string $configFilePath, string $configFileType) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$configFilePath</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$configFileType</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a id="method_loadPlugins"></a><div class="element clickable method public method_loadPlugins" data-toggle="collapse" data-target=".method_loadPlugins .collapse">
+<h2>Loads the plugin classes from the plugins setting.</h2>
+<pre>loadPlugins() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_setSettingsContainer"></a><div class="element clickable method public method_setSettingsContainer" data-toggle="collapse" data-target=".method_setSettingsContainer .collapse">
+<h2>Set SettingsContainer.</h2>
+<pre>setSettingsContainer(\Xazure\Css\Setting\SettingsContainer $container) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This allows you to replace the default SettingsContainer with a custom one, for dependency injection
+purposes.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$container</h4>
+<code><a href="../classes/Xazure.Css.Setting.SettingsContainer.html">\Xazure\Css\Setting\SettingsContainer</a></code>
+</div>
+</div></div>
+</div>
+<a id="method_applyPluginRecurse"></a><div class="element clickable method protected method_applyPluginRecurse" data-toggle="collapse" data-target=".method_applyPluginRecurse .collapse">
+<h2>This function does the heavy lifting.</h2>
+<pre>applyPluginRecurse(\Xazure\Css\Element\ElementInterface $element, \Xazure\Css\Plugin\Callback\Callback $callback) : <a href="../classes/Xazure.Css.Element.ElementInterface.html">\Xazure\Css\Element\ElementInterface</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>It traverses all of the elements children and
+attempts to apply the supplied plugin.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$element</h4>
+<code><a href="../classes/Xazure.Css.Element.ElementInterface.html">\Xazure\Css\Element\ElementInterface</a></code><p>The element to apply the plugin to.</p></div>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code><a href="../classes/Xazure.Css.Plugin.Callback.Callback.html">\Xazure\Css\Plugin\Callback\Callback</a></code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td>If the plugin callback does not return an instance of ElementInterface.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Xazure.Css.Element.ElementInterface.html">\Xazure\Css\Element\ElementInterface</a></code>The processed element.</div>
+</div></div>
+</div>
+<a id="method_applyPlugins"></a><div class="element clickable method protected method_applyPlugins" data-toggle="collapse" data-target=".method_applyPlugins .collapse">
+<h2>Applies all of the plugins to their respective elements.</h2>
+<pre>applyPlugins(\Xazure\Css\Element\ElementGroup $root) : <a href="../classes/Xazure.Css.Element.ElementGroup.html">\Xazure\Css\Element\ElementGroup</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>For each plugin callback, we will make one pass and apply it to any relevant
+elements.</p>
+
+<p>While it is possible that a plugin will be applied to a generated plugin,
+generally plugins should not rely on this as the order of the plugin loading
+dictates how this will work.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$root</h4>
+<code><a href="../classes/Xazure.Css.Element.ElementGroup.html">\Xazure\Css\Element\ElementGroup</a></code><p>The root ElementGroup.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Xazure.Css.Element.ElementGroup.html">\Xazure\Css\Element\ElementGroup</a></code>The root element, with plugins applied.</div>
+</div></div>
+</div>
+<a id="method_loadPlugin"></a><div class="element clickable method protected method_loadPlugin" data-toggle="collapse" data-target=".method_loadPlugin .collapse">
+<h2>Does the heavy lifting to load a single plugin.</h2>
+<pre>loadPlugin(string $pluginName, array $pluginData) : <a href="../classes/Xazure.Css.Plugin.PluginInterface.html">\Xazure\Css\Plugin\PluginInterface</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$pluginName</h4>
+<code>string</code><p>The name of the plugin.</p></div>
+<div class="subelement argument">
+<h4>$pluginData</h4>
+<code>array</code><p>The pluginData array from settings, which should contain at least class.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td>If class isn't in pluginData, the class couldn't be found, or the class isn't an instance of PluginInterface.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Xazure.Css.Plugin.PluginInterface.html">\Xazure\Css\Plugin\PluginInterface</a></code></div>
+</div></div>
+</div>
+<a id="method_processElementBlock"></a><div class="element clickable method protected method_processElementBlock" data-toggle="collapse" data-target=".method_processElementBlock .collapse">
+<h2>Given a line of source, creates either an AtRuleBlock or Block.</h2>
+<pre>processElementBlock(string $lineSource) : <a href="../classes/Xazure.Css.Element.AtRuleBlock.html">\Xazure\Css\Element\AtRuleBlock</a> | <a href="../classes/Xazure.Css.Element.Block.html">\Xazure\Css\Element\Block</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$lineSource</h4>
+<code>string</code><p>The line to start the block from.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Xazure.Css.Element.AtRuleBlock.html">\Xazure\Css\Element\AtRuleBlock</a></code><code><a href="../classes/Xazure.Css.Element.Block.html">\Xazure\Css\Element\Block</a></code>The AtRuleBlock or Bloick we generate.</div>
+</div></div>
+</div>
+<a id="method_processElementLine"></a><div class="element clickable method protected method_processElementLine" data-toggle="collapse" data-target=".method_processElementLine .collapse">
+<h2>Given a line of source, creates either an AtRule or Property.</h2>
+<pre>processElementLine(string $lineSource) : <a href="../classes/Xazure.Css.Element.AtRule.html">\Xazure\Css\Element\AtRule</a> | <a href="../classes/Xazure.Css.Element.Property.html">\Xazure\Css\Element\Property</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$lineSource</h4>
+<code>string</code><p>The line to get element from.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td>If it doesn't match the at-rule or property pattern.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Xazure.Css.Element.AtRule.html">\Xazure\Css\Element\AtRule</a></code><code><a href="../classes/Xazure.Css.Element.Property.html">\Xazure\Css\Element\Property</a></code>The AtRule or Property we generate.</div>
+</div></div>
+</div>
+<a id="method_processElements"></a><div class="element clickable method protected method_processElements" data-toggle="collapse" data-target=".method_processElements .collapse">
+<h2>Given the stylesheet source, builds it into ElementInterfaces.</h2>
+<pre>processElements($source) : <a href="../classes/Xazure.Css.Element.ElementGroup.html">\Xazure\Css\Element\ElementGroup</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$source</h4><p>The stylesheet source.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td>If a } is found with no block open for it to pair against, or not all { are paired with a {.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Xazure.Css.Element.ElementGroup.html">\Xazure\Css\Element\ElementGroup</a></code></div>
+</div></div>
+</div>
+<a id="method_stripComments"></a><div class="element clickable method protected method_stripComments" data-toggle="collapse" data-target=".method_stripComments .collapse">
+<h2>Strips all CSS comments from the given source.</h2>
+<pre>stripComments(string $source) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$source</h4>
+<code>string</code><p>The stylesheet source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The stylesheet source with comments stripped.</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_pluginCallbacks"> </a><div class="element clickable property protected property_pluginCallbacks" data-toggle="collapse" data-target=".property_pluginCallbacks .collapse">
+<h2></h2>
+<pre>$pluginCallbacks : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_plugins"> </a><div class="element clickable property protected property_plugins" data-toggle="collapse" data-target=".property_plugins .collapse">
+<h2></h2>
+<pre>$plugins : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_settingsContainer"> </a><div class="element clickable property protected property_settingsContainer" data-toggle="collapse" data-target=".property_settingsContainer .collapse">
+<h2></h2>
+<pre>$settingsContainer : <a href="../classes/Xazure.Css.Setting.SettingsContainer.html">\Xazure\Css\Setting\SettingsContainer</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2012-12-11T00:02:19-08:00.<br></footer></div>
+</div>
+</body>
+</html>

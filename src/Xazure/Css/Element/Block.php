@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of the XazureCSS package.
+ *
+ * (c) Christian Snodgrass <csnodgrass3147+github@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace Xazure\Css\Element;
 
 /**
@@ -14,8 +22,9 @@ class Block extends ElementGroup implements SelectorInterface
     protected $selectors;
 
     /**
-     * @param array $selectors
-     * @param array $properties
+     * Constructor.
+     *
+     * @param array $selectors An array of string selectors.
      */
     public function __construct(array $selectors = array())
     {
@@ -23,7 +32,9 @@ class Block extends ElementGroup implements SelectorInterface
     }
 
     /**
-     * @return array
+     * Get selectors.
+     *
+     * @return array An array of string selectors.
      */
     public function getSelectors()
     {
@@ -31,7 +42,9 @@ class Block extends ElementGroup implements SelectorInterface
     }
 
     /**
-     * @param array $selectors
+     * Set selectors.
+     *
+     * @param array $selectors An array of string selectors
      */
     public function setSelectors(array $selectors)
     {
@@ -39,6 +52,8 @@ class Block extends ElementGroup implements SelectorInterface
     }
 
     /**
+     * Add a selector.
+     *
      * @param string $selector
      */
     public function addSelector($selector)
@@ -47,6 +62,8 @@ class Block extends ElementGroup implements SelectorInterface
     }
 
     /**
+     * Removes all selectors with the given value.
+     *
      * @param string $selector
      */
     public function removeSelector($selector)
@@ -57,6 +74,8 @@ class Block extends ElementGroup implements SelectorInterface
     }
 
     /**
+     * Converts Block to a string representation.
+     *
      * @return string
      */
     public function __toString()

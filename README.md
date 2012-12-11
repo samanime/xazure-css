@@ -3,7 +3,8 @@ xazure-css
 
 A CSS pre-processor which supports plugins.
 
-Created by: Christian Snodgrass
+Original Author: Christian Snodgrass
+License: MIT (others available upon request)
 
 XazureCSS is a CSS pre-processor (it does work to the CSS before it is displayed). By itself it doesn't do much of
 anything. What makes it special is that you can include just about any plugin to add all sorts of functionality.

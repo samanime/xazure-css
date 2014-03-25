@@ -1,3 +1,7 @@
+# xazure-css no longer maintained
+
+xazure-css is not longer maintained. It is left up here simply because there is no reason to take it down. Please use LESS or SASS instead. They both fulfill the same general goal as xazure-css was trying to acheive, but are both much better supported.
+
 xazure-css
 ==========
 
